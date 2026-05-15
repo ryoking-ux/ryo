@@ -63,12 +63,170 @@
       }
       .day-delete-btn, .row-delete-btn, .add-row-btn { display:none !important; }
     }
+
+    /* === 行前準備清單 Checklist（手機＋電腦通用）=== */
+    .chk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      cursor: pointer;
+      padding: 2px 0;
+      line-height: 1.9;
+      user-select: none;
+    }
+    .chk-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      margin-top: 4px;
+      cursor: pointer;
+      accent-color: #27ae60;
+      flex-shrink: 0;
+    }
+    .chk-item.done span {
+      text-decoration: line-through;
+      color: #b0b0b0;
+    }
+    .prep-reset-btn {
+      margin-top: 14px;
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      padding: 6px 18px;
+      font-size: 12px;
+      color: #999;
+      cursor: pointer;
+      display: block;
+      transition: all .2s;
+    }
+    .prep-reset-btn:hover {
+      border-color: #e05c5c;
+      color: #e05c5c;
+      background: #fff5f5;
+    }
+
+    /* === 電腦版寬版顯示（768px 以上）=== 
+    @media (min-width: 600px) {
+      .page {
+        max-width: 960px;
+        padding: 32px 40px;
+      }
+      #tab-nav {
+        justify-content: center;
+      }
+      .tab-btn {
+        font-size: 13px;
+        padding: 10px 18px;
+      }
+      #edit-toolbar {
+        justify-content: flex-start;
+        padding: 8px 40px;
+      }
+     
+    }
+      */
+    /* === 預設樣式：手機版（小螢幕） === */
+    .page {
+      max-width: 100%; /* 手機版填滿 */
+      padding: 16px;   /* 較小的間距 */
+    }
+    #tab-nav {
+      justify-content: space-around; /* 手機版按鈕平均分配 */
+    }
+
+    /* === 自動判斷：當螢幕寬度 > 768px（電腦或平板橫放） === */
+    @media (min-width: 768px) {
+      .page {
+        max-width: 960px;
+        padding: 32px 40px;
+      }
+      #tab-nav {
+        justify-content: center;
+      }
+      /* ...其他電腦版才要改的樣式... */
+    }
+
+    /* === 天氣 Badge（版本A：嵌入每日標頭）=== */
+    .weather-badges { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+    .weather-badge {
+      display:inline-flex; align-items:center; gap:5px;
+      background:rgba(255,255,255,0.18); border-radius:20px;
+      padding:4px 10px; font-size:12px; color:white;
+      backdrop-filter:blur(4px);
+    }
+    .weather-badge .wb-loc { font-size:10px; opacity:0.8; }
+    .weather-badge .wb-temp { font-weight:600; font-size:13px; }
+    .weather-badge .wb-rain { font-size:10px; opacity:0.85; }
+    .weather-badge.wb-loading { opacity:0.5; font-size:11px; }
+    .weather-badge.wb-future { background:rgba(255,255,255,0.10); font-size:11px; opacity:0.75; }
+
+    /* === 天氣頁籤（版本B：獨立天氣頁面）=== */
+    .wtab-bar { display:flex; gap:6px; margin-bottom:14px; flex-wrap:wrap; }
+    .wtab-btn {
+      padding:6px 16px; border-radius:20px; border:1.5px solid #c8d8e8;
+      background:white; color:#2c5f8a; font-size:13px; cursor:pointer;
+      font-family:'Noto Sans TC',sans-serif; transition:all .18s;
+    }
+    .wtab-btn.active { background:#1a3a5c; color:white; border-color:#1a3a5c; }
+    .w7-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:5px; margin-bottom:16px; }
+    .w7-card {
+      background:#f5f8fc; border-radius:8px; padding:8px 4px;
+      text-align:center; font-size:11px; border:1.5px solid transparent;
+    }
+    .w7-card.today { border-color:#2c7fba; background:#e8f4fd; }
+    .w7-day { color:#888; font-size:10px; margin-bottom:3px; }
+    .w7-icon { font-size:19px; margin:3px 0; }
+    .w7-hi { color:#d0440a; font-weight:600; }
+    .w7-lo { color:#2c7fba; }
+    .w7-rain { color:#888; font-size:10px; margin-top:2px; }
+    .wdetail-row {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:8px 0; border-bottom:1px solid #f0f0f0; font-size:13px;
+    }
+    .wdetail-row:last-child { border-bottom:none; }
+    .wdetail-label { color:#666; display:flex; align-items:center; gap:6px; }
+    .wdetail-val { font-weight:600; color:#1a3a5c; }
+    .wfuture-notice {
+      background:#f0f5ff; border-radius:8px; padding:14px 16px;
+      font-size:13px; color:#2c5f8a; text-align:center; line-height:1.8;
+    }
+  </style>
+  <!-- Leaflet v11 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+  <style>
+    #map-panel{display:none;position:fixed;left:0;right:0;bottom:0;z-index:300;flex-direction:column;background:#e8ecf0;}
+    #map-panel.visible{display:flex;}
+    #map-toolbar{background:white;padding:7px 10px;flex-shrink:0;display:flex;align-items:center;gap:5px;box-shadow:0 1px 4px rgba(0,0,0,.12);flex-wrap:wrap;}
+    .mfbtn{padding:4px 12px;border-radius:12px;border:none;cursor:pointer;font-size:11.5px;font-family:'Noto Sans TC',sans-serif;background:#e2e8f0;color:#444;font-weight:500;transition:all .18s;}
+    .mfbtn.active{background:#1a3a5c;color:white;}
+    #map-hint{margin-left:auto;font-size:11px;color:#999;white-space:nowrap;}
+    #leaflet-map{flex:1;min-height:0;}
+    #map-legend{position:absolute;bottom:16px;right:10px;z-index:420;background:rgba(255,255,255,.95);border-radius:8px;padding:8px 12px;box-shadow:0 2px 8px rgba(0,0,0,.18);font-size:11.5px;line-height:2;pointer-events:none;}
+    .ldot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:middle;}
+    #sheet-bd{display:none;position:absolute;inset:0;z-index:425;background:rgba(0,0,0,.22);}
+    #sheet-bd.on{display:block;}
+    #bsheet{position:absolute;bottom:0;left:0;right:0;z-index:430;background:white;border-radius:18px 18px 0 0;padding-bottom:28px;box-shadow:0 -4px 24px rgba(0,0,0,.18);transform:translateY(100%);transition:transform .32s cubic-bezier(.32,.72,0,1);max-height:62vh;overflow-y:auto;}
+    #bsheet.open{transform:translateY(0);}
+    .sh-handle{width:40px;height:4px;background:#d1d5db;border-radius:2px;margin:10px auto 0;}
+    .sh-in{padding:14px 18px 4px;}
+    .sh-time{font-size:12px;color:#999;margin-bottom:4px;}
+    .sh-name{font-size:17px;font-weight:bold;color:#1a3a5c;display:flex;align-items:center;gap:7px;margin-bottom:3px;}
+    .sh-num{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold;color:white;}
+    .sh-local{font-size:12px;color:#bbb;margin-bottom:10px;}
+    .sh-desc{font-size:13px;color:#555;line-height:1.75;padding:10px 0 14px;border-top:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0;margin-bottom:14px;}
+    .sh-maps{display:inline-block;background:#1a73e8;color:white;padding:10px 24px;border-radius:20px;font-size:14px;font-weight:500;text-decoration:none;}
+    .sh-close{float:right;background:#f1f5f9;border:none;width:30px;height:30px;border-radius:50%;font-size:16px;cursor:pointer;color:#666;line-height:30px;text-align:center;}
   </style>
 </head>
 <body>
 
 <!-- 頁籤導航 -->
 <nav id="tab-nav">
+  <button class="tab-btn" id="btn-map" onclick="toggleMap(this)">🗺️<br>地圖</button>
+  <div class="tab-divider" style="width:1px;background:rgba(255,255,255,.2);margin:8px 0;flex-shrink:0;"></div>
   <button class="tab-btn active" onclick="scrollToSection('cover')">🗺️<br>封面</button>
   <button class="tab-btn" onclick="scrollToSection('prep')">🧳<br>行前</button>
   <button class="tab-btn" onclick="scrollToSection('accommodation')">🏨<br>住宿</button>
@@ -86,6 +244,7 @@
   <button class="tab-btn" onclick="scrollToSection('day-10')" title="第10天 玩具美術館・北浜Alley・大採買・移宿">D10<br>8/11</button>
   <button class="tab-btn" onclick="scrollToSection('day-11')" title="第11天 機場公園放電・返台">D11<br>8/12</button>
   <div class="tab-divider"></div>
+  <button class="tab-btn" onclick="scrollToSection('weather')">🌤️<br>天氣</button>
   <button class="tab-btn" onclick="scrollToSection('budget')">💰<br>記帳</button>
 </nav>
 
@@ -94,6 +253,40 @@
   <span style="color:white;font-size:13px;font-weight:bold">✏️ 編輯模式</span>
   <button onclick="addDay()" style="background:#27ae60;color:white;border:none;padding:7px 14px;border-radius:6px;font-size:13px;cursor:pointer;min-height:36px">＋ 新增一天</button>
   <button onclick="toggleEditMode(false)" style="background:#666;color:white;border:none;padding:7px 14px;border-radius:6px;font-size:13px;cursor:pointer;margin-left:auto;min-height:36px">✓ 完成編輯</button>
+</div>
+
+<!-- 主內容 -->
+
+<!-- ▶ 地圖面板 v11 ◀ -->
+<div id="map-panel">
+  <div id="map-toolbar">
+    <button class="mfbtn active" data-day="all" onclick="filterDay('all')">全部</button>
+    <button class="mfbtn" data-day="1"  onclick="filterDay(1)">D1</button>
+    <button class="mfbtn" data-day="2"  onclick="filterDay(2)">D2</button>
+    <button class="mfbtn" data-day="3"  onclick="filterDay(3)">D3</button>
+    <button class="mfbtn" data-day="4"  onclick="filterDay(4)">D4</button>
+    <button class="mfbtn" data-day="5"  onclick="filterDay(5)">D5</button>
+    <button class="mfbtn" data-day="6"  onclick="filterDay(6)">D6</button>
+    <button class="mfbtn" data-day="7"  onclick="filterDay(7)">D7</button>
+    <button class="mfbtn" data-day="8"  onclick="filterDay(8)">D8</button>
+    <button class="mfbtn" data-day="9"  onclick="filterDay(9)">D9</button>
+    <button class="mfbtn" data-day="10" onclick="filterDay(10)">D10</button>
+    <button class="mfbtn" data-day="11" onclick="filterDay(11)">D11</button>
+    <span id="map-hint">點編號查看景點資訊</span>
+  </div>
+  <div id="leaflet-map"></div>
+  <div id="map-legend">
+    <div><span class="ldot" style="background:#2c7be5"></span>觀光</div>
+    <div><span class="ldot" style="background:#e05c5c"></span>餐飲</div>
+    <div><span class="ldot" style="background:#38a169"></span>購物</div>
+    <div><span class="ldot" style="background:#d69e2e"></span>交通</div>
+    <div><span class="ldot" style="background:#6b7280"></span>住宿</div>
+  </div>
+  <div id="sheet-bd" onclick="closeSheet()"></div>
+  <div id="bsheet">
+    <div class="sh-handle"></div>
+    <div class="sh-in" id="sh-in"></div>
+  </div>
 </div>
 
 <!-- 主內容 -->
@@ -119,41 +312,43 @@
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">
     <div style="background:#f0f5ff;border-radius:8px;padding:12px;border-left:3px solid #2c5f8a">
       <p style="font-weight:bold;color:#1a3a5c;margin-bottom:6px;font-size:14px">📄 重要文件</p>
-      <ul style="font-size:13px;list-style:none;line-height:2">
-        <li>☐ 護照（有效期6個月以上）</li>
-        <li>☐ 日文駕照譯本（租車必備）</li>
-        <li>☐ 飯店/租車預約確認單</li>
-        <li>☐ 行動電源（禁放上方行李櫃）</li>
+      <ul style="font-size:13px;list-style:none">
+        <li><label class="chk-item" id="label-passport"><input type="checkbox" id="chk-passport" onchange="savePrepChecks()"> <span>護照（有效期6個月以上）</span></label></li>
+        <li><label class="chk-item" id="label-license"><input type="checkbox" id="chk-license" onchange="savePrepChecks()"> <span>日文駕照譯本（租車必備）</span></label></li>
+        <li><label class="chk-item" id="label-booking"><input type="checkbox" id="chk-booking" onchange="savePrepChecks()"> <span>飯店/租車預約確認單</span></label></li>
+        <li><label class="chk-item" id="label-powerbank"><input type="checkbox" id="chk-powerbank" onchange="savePrepChecks()"> <span>行動電源（禁放上方行李櫃）</span></label></li>
       </ul>
     </div>
     <div style="background:#f0f5ff;border-radius:8px;padding:12px;border-left:3px solid #2c5f8a">
       <p style="font-weight:bold;color:#1a3a5c;margin-bottom:6px;font-size:14px">🔌 電子設備</p>
-      <ul style="font-size:13px;list-style:none;line-height:2">
-        <li>☐ 日本 E-SIM（出發前安裝）</li>
-        <li>☐ 實體 ETC 卡（自駕）</li>
-        <li>☐ 相機＋記憶卡格式化</li>
-        <li>☐ 汽車手機架（自駕）</li>
+      <ul style="font-size:13px;list-style:none">
+        <li><label class="chk-item" id="label-esim"><input type="checkbox" id="chk-esim" onchange="savePrepChecks()"> <span>日本 E-SIM（出發前安裝）</span></label></li>
+        <li><label class="chk-item" id="label-etc"><input type="checkbox" id="chk-etc" onchange="savePrepChecks()"> <span>實體 ETC 卡（自駕）</span></label></li>
+        <li><label class="chk-item" id="label-camera"><input type="checkbox" id="chk-camera" onchange="savePrepChecks()"> <span>相機＋記憶卡格式化</span></label></li>
+        <li><label class="chk-item" id="label-carmount"><input type="checkbox" id="chk-carmount" onchange="savePrepChecks()"> <span>汽車手機架（自駕）</span></label></li>
       </ul>
     </div>
     <div style="background:#f5fff0;border-radius:8px;padding:12px;border-left:3px solid #27ae60">
       <p style="font-weight:bold;color:#1e5c2e;margin-bottom:6px;font-size:14px">🌞 防暑用品</p>
-      <ul style="font-size:13px;list-style:none;line-height:2">
-        <li>☐ 遮陽帽（寬帽緣）</li>
-        <li>☐ 防曬乳 SPF50+</li>
-        <li>☐ 涼感巾＋隨身電扇</li>
-        <li>☐ 水壺（每日補2L以上）</li>
+      <ul style="font-size:13px;list-style:none">
+        <li><label class="chk-item" id="label-hat"><input type="checkbox" id="chk-hat" onchange="savePrepChecks()"> <span>遮陽帽（寬帽緣）</span></label></li>
+        <li><label class="chk-item" id="label-sunscreen"><input type="checkbox" id="chk-sunscreen" onchange="savePrepChecks()"> <span>防曬乳 SPF50+</span></label></li>
+        <li><label class="chk-item" id="label-cooling"><input type="checkbox" id="chk-cooling" onchange="savePrepChecks()"> <span>涼感巾＋隨身電扇</span></label></li>
+        <li><label class="chk-item" id="label-bottle"><input type="checkbox" id="chk-bottle" onchange="savePrepChecks()"> <span>水壺（每日補2L以上）</span></label></li>
       </ul>
     </div>
     <div style="background:#fff8f0;border-radius:8px;padding:12px;border-left:3px solid #f0a500">
       <p style="font-weight:bold;color:#c8860a;margin-bottom:6px;font-size:14px">💊 備用藥品</p>
-      <ul style="font-size:13px;list-style:none;line-height:2">
-        <li>☐ 感冒藥・胃藥</li>
-        <li>☐ 痠痛貼布（走山路用）</li>
-        <li>☐ 暈船藥（搭渡輪備用）</li>
-        <li>☐ 防蚊液・濕紙巾</li>
+      <ul style="font-size:13px;list-style:none">
+        <li><label class="chk-item" id="label-medicine"><input type="checkbox" id="chk-medicine" onchange="savePrepChecks()"> <span>感冒藥・胃藥</span></label></li>
+        <li><label class="chk-item" id="label-patch"><input type="checkbox" id="chk-patch" onchange="savePrepChecks()"> <span>痠痛貼布（走山路用）</span></label></li>
+        <li><label class="chk-item" id="label-seasick"><input type="checkbox" id="chk-seasick" onchange="savePrepChecks()"> <span>暈船藥（搭渡輪備用）</span></label></li>
+        <li><label class="chk-item" id="label-mosquito"><input type="checkbox" id="chk-mosquito" onchange="savePrepChecks()"> <span>防蚊液・濕紙巾</span></label></li>
       </ul>
     </div>
   </div>
+
+  <button class="prep-reset-btn" onclick="resetPrepChecks()">🔄 清除所有勾選（出發前重置）</button>
 
   <!-- 航班 -->
   <h3 style="color:#2c5f8a;font-size:16px;margin:16px 0 8px;border-bottom:1px solid #ddd;padding-bottom:6px">✈️ 航班資訊</h3>
@@ -216,6 +411,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- 住宿三餐 -->
 <div id="accommodation" class="page">
@@ -319,14 +515,55 @@
 </div>
 </div>
 
+<!-- 天氣頁面（版本B） -->
+<div id="weather" class="page">
+  <h1 style="font-size:22px;color:#1a3a5c;border-bottom:2px solid #2c5f8a;padding-bottom:10px;margin-bottom:16px">🌤️ 旅遊期間天氣預報</h1>
+
+  <!-- 地點切換 -->
+  <div class="wtab-bar" id="weather-loc-tabs">
+    <button class="wtab-btn active" data-loc="0" onclick="switchWeatherLoc(0)">🇯🇵 高松</button>
+    <button class="wtab-btn" data-loc="1" onclick="switchWeatherLoc(1)">🌿 小豆島</button>
+    <button class="wtab-btn" data-loc="2" onclick="switchWeatherLoc(2)">🇹🇼 台中（出發地）</button>
+  </div>
+
+  <!-- 載入中 -->
+  <div id="weather-b-loading" style="text-align:center;padding:30px;color:#999;font-size:14px">
+    ⏳ 載入天氣資料中…
+  </div>
+
+  <!-- 預報面板 -->
+  <div id="weather-b-panel" style="display:none">
+    <!-- 7天網格 -->
+    <div style="font-size:13px;font-weight:700;color:#1a3a5c;margin-bottom:8px">📅 未來7天預報</div>
+    <div class="w7-grid" id="w7-grid"></div>
+
+    <!-- 選中日詳細 -->
+    <div style="font-size:13px;font-weight:700;color:#1a3a5c;margin-bottom:8px" id="w-detail-title">今日詳細資訊</div>
+    <div id="w-detail-body"></div>
+
+    <div style="font-size:11px;color:#aaa;margin-top:12px;text-align:right">
+      資料來源：Open-Meteo · 免費氣象 API · 每30分更新
+    </div>
+  </div>
+
+  <!-- 旅遊日超出預報範圍提示 -->
+  <div id="weather-b-future" style="display:none">
+    <div class="wfuture-notice" id="weather-future-msg"></div>
+    <div style="margin-top:16px;font-size:13px;font-weight:700;color:#1a3a5c;margin-bottom:8px">📍 旅遊地點今日天氣（參考用）</div>
+    <div id="weather-b-today-ref"></div>
+    <div style="font-size:11px;color:#aaa;margin-top:12px;text-align:right">資料來源：Open-Meteo</div>
+  </div>
+</div>
+
 <!-- 各天行程 -->
 <div id="day-1" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第1天　高松抵達・玉藻公園</span>
+      <div class="weather-badges" id="wb-1"></div>
     </div>
-    <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/2（日）</span>
+    <span style="font-size:15px;opacity:0.85;white-space:nowrap">5/15（日）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
   </div>
 
@@ -432,11 +669,13 @@
   </div>
   <p style="font-size:11px;color:#aaa;margin-top:5px;font-style:italic">※ 班次請於出發前至官網核實，可能因季節假日調整。</p>
 </div>
+</div>
 <div id="day-2" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第2天　金刀比羅宮・烏龍麵學校・呆呆獸公園</span>
+      <div class="weather-badges" id="wb-2"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/3（一）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -627,11 +866,13 @@
   </div>
   <p style="font-size:11px;color:#aaa;margin-top:5px;font-style:italic">※ 班次請於出發前至官網核實，可能因季節假日調整。</p>
 </div>
+</div>
 <div id="day-3" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第3天　四國水族館・高松商店街採買</span>
+      <div class="weather-badges" id="wb-3"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/4（二）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -719,11 +960,13 @@
   </div>
   <p style="font-size:11px;color:#aaa;margin-top:5px;font-style:italic">※ 班次請於出發前至官網核實，可能因季節假日調整。</p>
 </div>
+</div>
 <div id="day-4" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第4天　抵達小豆島・橄欖公園・天使之路</span>
+      <div class="weather-badges" id="wb-4"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/5（三）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -1088,8 +1331,9 @@
 <div id="day-5" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第5天　寒霞溪纜車・丸金醬油・富丘八幡神社</span>
+      <div class="weather-badges" id="wb-5"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/6（四）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -1300,11 +1544,13 @@
   </div>
   <p style="font-size:11px;color:#aaa;margin-top:5px;font-style:italic">※ 班次請於出發前至官網核實，可能因季節假日調整。</p>
 </div>
+</div>
 <div id="day-6" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第6天　土渕海峽・迷路之街・搭船回高松</span>
+      <div class="weather-badges" id="wb-6"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/7（五）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -1544,8 +1790,9 @@
 <div id="day-7" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第7天　栗林公園・屋島展望・週六限定夕陽</span>
+      <div class="weather-badges" id="wb-7"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/8（六）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -1687,11 +1934,13 @@
   </div>
   <p style="font-size:11px;color:#aaa;margin-top:5px;font-style:italic">※ 班次請於出發前至官網核實，可能因季節假日調整。</p>
 </div>
+</div>
 <div id="day-8" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第8天　西香川自駕：天空鞦韆・天空鳥居・父母之濱</span>
+      <div class="weather-badges" id="wb-8"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/9（日）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -1886,8 +2135,9 @@
 <div id="day-9" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第9天　白鳥動物園・德島・城岬公園夕陽</span>
+      <div class="weather-badges" id="wb-9"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/10（一）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -2082,8 +2332,9 @@
 <div id="day-10" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第10天　玩具美術館・北浜Alley・大採買・移宿</span>
+      <div class="weather-badges" id="wb-10"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/11（二）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -2283,8 +2534,9 @@
 <div id="day-11" class="page day-section">
   <!-- 天標題 -->
   <div style="background:linear-gradient(135deg,#1a3a5c,#2c7fba);color:white;padding:14px 18px;border-radius:8px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
-    <div>
+    <div style="flex:1;min-width:0">
       <span class="editable" style="font-size:20px;font-weight:700;display:block">第11天　機場公園放電・返台</span>
+      <div class="weather-badges" id="wb-11"></div>
     </div>
     <span style="font-size:15px;opacity:0.85;white-space:nowrap">8/12（三）</span>
     <button class="day-delete-btn" onclick="deleteDay(this)" style="display:none;background:rgba(220,50,50,0.85);color:white;border:none;border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer">🗑️ 刪除這天</button>
@@ -2374,6 +2626,7 @@
 </div>
 
 <!-- 記帳頁 -->
+</div>
 <div id="budget" class="page">
   <h1 style="font-size:22px;color:#1a3a5c;border-bottom:2px solid #2c5f8a;padding-bottom:10px;margin-bottom:16px">💰 旅行記帳頁</h1>
   <h3 style="color:#2c5f8a;font-size:15px;margin-bottom:12px">預算概估（不含機票・住宿）</h3>
@@ -2435,7 +2688,7 @@ window.addEventListener('scroll', () => {
 }, { passive:true });
 
 // ===== 編輯模式 =====
-const STORAGE_KEY = 'travel-v9-content';
+const STORAGE_KEY = 'travel-v11-content';
 let isEditing = false;
 
 function toggleEditMode(on) {
@@ -2545,6 +2798,504 @@ document.addEventListener('input', () => {
 });
 
 window.addEventListener('DOMContentLoaded', loadContent);
+</script>
+
+<script>
+// ═══════════════ v11 互動地圖 ═══════════════
+const catColor={sightseeing:'#2c7be5',dining:'#e05c5c',shopping:'#38a169',transport:'#d69e2e',hotel:'#6b7280'};
+const itineraryData={days:[
+  {day:1,stops:[
+    {num:1,time:'05:30',name:'台中機場出發',nameLocal:'台中空港 RMQ',category:'transport',description:'台中清水機場 T2 航廈，辦理行李托運 / 星宇航空',lat:24.2647,lng:120.6218,mapsUrl:'https://www.google.com/maps/search/?api=1&query=台中清水機場'},
+    {num:2,time:'12:20',name:'高松機場抵達',nameLocal:'高松空港 TAK',category:'transport',description:'入境後搭利木津巴士→JR高松站，約45分，成人¥1,000',lat:34.2139,lng:134.0164,mapsUrl:'https://www.google.com/maps/search/?api=1&query=高松空港'},
+    {num:3,time:'14:30',name:'Jasmin 錦町III（Check-in）',nameLocal:'高松市錦町1-7-2',category:'hotel',description:'飯店寄放行李，換輕便鞋，步行前往玉藻公園',lat:34.3425,lng:134.0477,mapsUrl:'https://www.google.com/maps/search/?api=1&query=Jasmin+錦町III+高松'},
+    {num:4,time:'15:30',name:'玉藻公園（高松城）',nameLocal:'玉藻公園',category:'sightseeing',description:'護城河餵鯛魚・月見櫓，日本三大水城之一，成人¥200',lat:34.3452,lng:134.0469,mapsUrl:'https://www.google.com/maps/search/?api=1&query=玉藻公園+高松城'},
+    {num:5,time:'17:30',name:'高松港・紅燈塔',nameLocal:'サンポート高松',category:'sightseeing',description:'全球首座全玻璃燈塔，欣賞瀨戶內海日落，免費',lat:34.3479,lng:134.0478,mapsUrl:'https://www.google.com/maps/search/?api=1&query=高松港+紅燈塔'},
+    {num:6,time:'19:00',name:'一鶴 高松店（晚餐）',nameLocal:'一鶴 高松店',category:'dining',description:'骨付鳥，初學者推薦「雛雞」嫩多汁，¥1,200–1,800',lat:34.3430,lng:134.0493,mapsUrl:'https://www.google.com/maps/search/?api=1&query=一鶴+高松店'}
+  ]},
+  {day:2,stops:[
+    {num:1,time:'08:30',name:'琴電高松築港站',nameLocal:'高松築港駅',category:'transport',description:'搭琴平線→琴電琴平，約70分，¥870',lat:34.3466,lng:134.0465,mapsUrl:'https://www.google.com/maps/search/?api=1&query=琴電高松築港駅'},
+    {num:2,time:'10:30',name:'金刀比羅宮',nameLocal:'金刀比羅宮',category:'sightseeing',description:'785層石階到本宮，免費入境，帶孩子登本宮即可',lat:34.1858,lng:133.8236,mapsUrl:'https://www.google.com/maps/search/?api=1&query=金刀比羅宮+琴平'},
+    {num:3,time:'13:00',name:'中野烏龍麵學校（午餐）',nameLocal:'中野うどん学校 琴平校',category:'dining',description:'手作烏龍麵體驗課，製作完就地吃，預約制',lat:34.1831,lng:133.8249,mapsUrl:'https://www.google.com/maps/search/?api=1&query=中野烏龍麵學校+琴平'},
+    {num:4,time:'15:00',name:'呆呆獸公園（ヤドン公園）',nameLocal:'ヤドン公園 宇多津',category:'sightseeing',description:'7個主題拍照點，免費入園',lat:34.2537,lng:133.8217,mapsUrl:'https://www.google.com/maps/search/?api=1&query=ヤドン公園+宇多津'},
+    {num:5,time:'16:30',name:'AEON MALL 綾川',nameLocal:'イオンモール綾川',category:'shopping',description:'藥妝・家電・超市採買',lat:34.2545,lng:133.9058,mapsUrl:'https://www.google.com/maps/search/?api=1&query=AEON+MALL+綾川'},
+    {num:6,time:'19:00',name:'寄鳥味鳥 瓦町（晚餐）',nameLocal:'寄鳥味鳥 瓦町',category:'dining',description:'骨付鳥名店，¥1,100–1,600',lat:34.3422,lng:134.0497,mapsUrl:'https://www.google.com/maps/search/?api=1&query=寄鳥味鳥+瓦町'}
+  ]},
+  {day:3,stops:[
+    {num:1,time:'09:00',name:'JR 高松→宇多津',nameLocal:'JR高松駅→宇多津駅',category:'transport',description:'搭JR予讚線往宇多津，約20分，¥310',lat:34.3506,lng:134.0485,mapsUrl:'https://www.google.com/maps/search/?api=1&query=JR高松駅'},
+    {num:2,time:'09:30',name:'四國水族館',nameLocal:'四国水族館',category:'sightseeing',description:'日本最新世代水族館，親子首選，大人¥2,200',lat:34.2935,lng:133.6709,mapsUrl:'https://www.google.com/maps/search/?api=1&query=四国水族館+宇多津'},
+    {num:3,time:'14:00',name:'丸龜町・商店街',nameLocal:'高松中央商店街',category:'shopping',description:'日本最長拱廊商店街837m，唐吉訶德・藥妝',lat:34.3469,lng:134.0498,mapsUrl:'https://www.google.com/maps/search/?api=1&query=丸亀町商店街+高松'},
+    {num:4,time:'19:00',name:'骨付鳥 蘭丸（晚餐）',nameLocal:'骨付鳥 蘭丸',category:'dining',description:'高松骨付鳥名店，皮脆汁多，¥1,200–1,700',lat:34.3430,lng:134.0503,mapsUrl:'https://www.google.com/maps/search/?api=1&query=骨付鳥+蘭丸+高松'}
+  ]},
+  {day:4,stops:[
+    {num:1,time:'08:00',name:'高松港碼頭（搭船）',nameLocal:'高松港フェリーターミナル',category:'transport',description:'搭小豆島渡輪→土庄港，約60分',lat:34.3476,lng:134.0478,mapsUrl:'https://www.google.com/maps/search/?api=1&query=高松港フェリーターミナル'},
+    {num:2,time:'10:00',name:'橄欖公園',nameLocal:'オリーブ公園',category:'sightseeing',description:'魔女宅急便取景地，可租掃帚拍照',lat:34.4869,lng:134.2047,mapsUrl:'https://www.google.com/maps/search/?api=1&query=オリーブ公園+小豆島'},
+    {num:3,time:'12:30',name:'24瞳映畫村（午餐）',nameLocal:'二十四の瞳映画村',category:'sightseeing',description:'昭和初期漁村重現，食堂有鯛魚料理',lat:34.4441,lng:134.2833,mapsUrl:'https://www.google.com/maps/search/?api=1&query=二十四の瞳映画村+小豆島'},
+    {num:4,time:'16:00',name:'天使之路（乾潮）',nameLocal:'エンジェルロード',category:'sightseeing',description:'退潮時沙洲現身，夕陽前後最美',lat:34.4801,lng:134.1720,mapsUrl:'https://www.google.com/maps/search/?api=1&query=エンジェルロード+小豆島'},
+    {num:5,time:'18:00',name:'海辺の宿 La Krasse',nameLocal:'土庄町甲1189-16',category:'hotel',description:'海景民宿，含在地料理晚餐',lat:34.4945,lng:134.1754,mapsUrl:'https://www.google.com/maps/search/?api=1&query=海辺の宿+La+Krasse+小豆島'}
+  ]},
+  {day:5,stops:[
+    {num:1,time:'08:30',name:'神懸線巴士→紅雲亭',nameLocal:'神懸線バス',category:'transport',description:'搭島巴士至纜車乘車處，¥510',lat:34.4853,lng:134.2266,mapsUrl:'https://www.google.com/maps/search/?api=1&query=草壁港+小豆島'},
+    {num:2,time:'09:30',name:'寒霞溪纜車',nameLocal:'寒霞渓ロープウェイ',category:'sightseeing',description:'日本三大渓谷美景，往返¥1,400，山頂360度視野',lat:34.4756,lng:134.2334,mapsUrl:'https://www.google.com/maps/search/?api=1&query=寒霞渓ロープウェイ+小豆島'},
+    {num:3,time:'13:00',name:'丸金醬油紀念館',nameLocal:'マルキン醤油記念館',category:'sightseeing',description:'百年醬油釀造桶體驗，小豆島必買伴手禮',lat:34.4912,lng:134.2131,mapsUrl:'https://www.google.com/maps/search/?api=1&query=マルキン醤油記念館+小豆島'},
+    {num:4,time:'14:30',name:'富丘八幡神社',nameLocal:'富丘八幡神社',category:'sightseeing',description:'小豆島最古老神社，境內大楠1000年以上',lat:34.4923,lng:134.2124,mapsUrl:'https://www.google.com/maps/search/?api=1&query=富丘八幡神社+小豆島'},
+    {num:5,time:'18:30',name:'小豆島拉麵 HISHIO（晚餐）',nameLocal:'小豆島ラーメン HISHIO',category:'dining',description:'醬油拉麵使用島產醬油，¥900–1,200',lat:34.4942,lng:134.1762,mapsUrl:'https://www.google.com/maps/search/?api=1&query=小豆島ラーメン+HISHIO'}
+  ]},
+  {day:6,stops:[
+    {num:1,time:'09:00',name:'土渕海峽（世界最窄）',nameLocal:'土渕海峡',category:'sightseeing',description:'最寬處僅9.93m，有通過證明書可領',lat:34.4950,lng:134.1866,mapsUrl:'https://www.google.com/maps/search/?api=1&query=土渕海峡+小豆島'},
+    {num:2,time:'10:00',name:'迷路之街',nameLocal:'迷路のまち',category:'sightseeing',description:'中世紀防禦設計小巷，巷弄寬僅1–2m',lat:34.4959,lng:134.1892,mapsUrl:'https://www.google.com/maps/search/?api=1&query=迷路のまち+小豆島'},
+    {num:3,time:'13:00',name:'渡輪 土庄→高松',nameLocal:'土庄港フェリー',category:'transport',description:'搭小豆島渡輪回高松，約60分',lat:34.4930,lng:134.1720,mapsUrl:'https://www.google.com/maps/search/?api=1&query=土庄港+フェリーターミナル'},
+    {num:4,time:'19:00',name:'川福本店（晚餐）',nameLocal:'川福本店',category:'dining',description:'高松老字號烏龍麵，海鮮天婦羅最受歡迎，¥800–1,500',lat:34.3464,lng:134.0501,mapsUrl:'https://www.google.com/maps/search/?api=1&query=川福本店+高松商店街'}
+  ]},
+  {day:7,stops:[
+    {num:1,time:'08:30',name:'栗林公園',nameLocal:'栗林公園',category:'sightseeing',description:'日本最大特別名勝庭園，成人¥410',lat:34.3335,lng:134.0490,mapsUrl:'https://www.google.com/maps/search/?api=1&query=栗林公園+高松'},
+    {num:2,time:'11:30',name:'上原屋本店（午餐）',nameLocal:'上原屋本店',category:'dining',description:'百年烏龍麵老店，冷烏龍麵夏日必點，¥600–900',lat:34.3302,lng:134.0525,mapsUrl:'https://www.google.com/maps/search/?api=1&query=上原屋本店+高松'},
+    {num:3,time:'13:30',name:'獅子之靈巖（屋島）',nameLocal:'獅子の霊巖 屋島',category:'sightseeing',description:'屋島最佳展望點，可見高松全景與瀨戶內島嶼',lat:34.3785,lng:134.1013,mapsUrl:'https://www.google.com/maps/search/?api=1&query=獅子の霊巖+屋島'},
+    {num:4,time:'18:30',name:'一鶴 瓦町店（晚餐）',nameLocal:'一鶴 瓦町店',category:'dining',description:'骨付鳥最後一次，¥1,200–1,800',lat:34.3401,lng:134.0474,mapsUrl:'https://www.google.com/maps/search/?api=1&query=一鶴+瓦町店+高松'}
+  ]},
+  {day:8,stops:[
+    {num:1,time:'08:00',name:'雲邊寺山頂公園（天空鞦韆）',nameLocal:'雲辺寺山頂公園',category:'sightseeing',description:'標高910m，天空鞦韆・阿波舞人形群，纜車¥2,200',lat:34.0983,lng:133.8258,mapsUrl:'https://www.google.com/maps/search/?api=1&query=雲辺寺山頂公園+三豊'},
+    {num:2,time:'12:00',name:'手打うどん 渡辺（午餐）',nameLocal:'手打うどん 渡辺',category:'dining',description:'三豊隱藏版烏龍麵名店，限量完售即打烊',lat:34.2512,lng:133.9283,mapsUrl:'https://www.google.com/maps/search/?api=1&query=手打うどん+渡辺+香川'},
+    {num:3,time:'14:00',name:'高屋神社（天空鳥居）',nameLocal:'高屋神社 天空の鳥居',category:'sightseeing',description:'海拔404m俯瞰觀音寺市，Instagram超熱點',lat:34.1044,lng:133.7489,mapsUrl:'https://www.google.com/maps/search/?api=1&query=高屋神社+天空の鳥居+観音寺'},
+    {num:4,time:'16:30',name:'父母之濱（水鏡夕陽）',nameLocal:'父母ヶ浜',category:'sightseeing',description:'日本版天空之鏡，夕陽前後2小時最佳，免費',lat:34.0936,lng:133.7039,mapsUrl:'https://www.google.com/maps/search/?api=1&query=父母ヶ浜+三豊'}
+  ]},
+  {day:9,stops:[
+    {num:1,time:'09:00',name:'白鳥動物園',nameLocal:'白鳥動物園',category:'sightseeing',description:'日本最多動物種類，可近距離互動，大人¥1,500',lat:34.3280,lng:134.1834,mapsUrl:'https://www.google.com/maps/search/?api=1&query=白鳥動物園+さぬき'},
+    {num:2,time:'13:00',name:'引田・東香川市（午餐）',nameLocal:'引田 東かがわ市',category:'dining',description:'引田港附近鰤魚料理・烏龍麵，歷史老街散步',lat:34.2556,lng:134.2161,mapsUrl:'https://www.google.com/maps/search/?api=1&query=引田+東かがわ市'},
+    {num:3,time:'15:00',name:'阿波人形淨瑠璃',nameLocal:'阿波人形浄瑠璃',category:'sightseeing',description:'德島傳統表演藝術，人形劇精細動作',lat:34.0661,lng:134.5593,mapsUrl:'https://www.google.com/maps/search/?api=1&query=阿波人形浄瑠璃+徳島'},
+    {num:4,time:'17:30',name:'城岬公園（夕陽展望）',nameLocal:'城ノ岬',category:'sightseeing',description:'東香川市最美夕陽展望點，瀨戶內海絕景',lat:34.3180,lng:134.1603,mapsUrl:'https://www.google.com/maps/search/?api=1&query=城ノ岬+東かがわ市'}
+  ]},
+  {day:10,stops:[
+    {num:1,time:'09:30',name:'高松市玩具美術館',nameLocal:'高松市こどもとおとなのミュージアム',category:'sightseeing',description:'木製玩具體驗・工藝品製作，大人¥700',lat:34.3446,lng:134.0452,mapsUrl:'https://www.google.com/maps/search/?api=1&query=高松市こどもとおとなのミュージアム'},
+    {num:2,time:'13:00',name:'綿谷烏龍麵（午餐）',nameLocal:'綿谷 高松店',category:'dining',description:'高松人氣烏龍麵，肉醬烏龍麵最受歡迎，¥500–700',lat:34.3481,lng:134.0512,mapsUrl:'https://www.google.com/maps/search/?api=1&query=綿谷うどん+高松'},
+    {num:3,time:'14:30',name:'北浜 Alley',nameLocal:'北浜alley',category:'shopping',description:'廢棄倉庫改造文創區，咖啡・選品・面海露臺',lat:34.3506,lng:134.0506,mapsUrl:'https://www.google.com/maps/search/?api=1&query=北浜alley+高松'},
+    {num:4,time:'16:00',name:'高松中央商店街（大採買）',nameLocal:'高松中央商店街',category:'shopping',description:'最後採買！唐吉訶德・藥妝・伴手禮',lat:34.3469,lng:134.0498,mapsUrl:'https://www.google.com/maps/search/?api=1&query=高松中央商店街'},
+    {num:5,time:'20:00',name:'88kawaramachi（移宿）',nameLocal:'高松市東田町2-6',category:'hotel',description:'獨棟一軒家，含廚房，最後一晚換環境',lat:34.3434,lng:134.0531,mapsUrl:'https://www.google.com/maps/search/?api=1&query=88kawaramachi+高松'}
+  ]},
+  {day:11,stops:[
+    {num:1,time:'08:00',name:'機場周邊公園放電',nameLocal:'高松空港周辺',category:'sightseeing',description:'離機場近的公園，讓孩子最後放電',lat:34.2200,lng:134.0100,mapsUrl:'https://www.google.com/maps/search/?api=1&query=高松空港+公園'},
+    {num:2,time:'11:40',name:'高松機場 報到',nameLocal:'高松空港 チェックイン',category:'transport',description:'起飛前90分到達，13:20起飛返台中',lat:34.2139,lng:134.0164,mapsUrl:'https://www.google.com/maps/search/?api=1&query=高松空港'}
+  ]}
+]};
+
+let map=null,clusterGroup=null,polylines=[],curDay='all',mapVisible=false;
+
+function makeIcon(num,color){
+  return L.divIcon({className:'',
+    html:'<div style="width:30px;height:30px;border-radius:50%;background:'+color+';color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold;border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,.35);font-family:sans-serif;">'+num+'</div>',
+    iconSize:[30,30],iconAnchor:[15,15]});
+}
+
+function openSheet(stop){
+  var color=catColor[stop.category]||'#999';
+  document.getElementById('sh-in').innerHTML=
+    '<div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;">'+
+      '<div>'+
+        '<div class="sh-time">⏰ '+stop.time+'</div>'+
+        '<div class="sh-name"><span class="sh-num" style="background:'+color+';">'+stop.num+'</span>'+stop.name+'</div>'+
+        '<div class="sh-local">'+stop.nameLocal+'</div>'+
+      '</div>'+
+      '<button class="sh-close" onclick="closeSheet()">✕</button>'+
+    '</div>'+
+    '<div class="sh-desc">'+stop.description+'</div>'+
+    '<a class="sh-maps" href="'+stop.mapsUrl+'" target="_blank">🗺️ Google Maps 導航</a>';
+  document.getElementById('bsheet').classList.add('open');
+  document.getElementById('sheet-bd').classList.add('on');
+}
+function closeSheet(){
+  document.getElementById('bsheet').classList.remove('open');
+  document.getElementById('sheet-bd').classList.remove('on');
+}
+
+function initMap(){
+  if(map)return;
+  map=L.map('leaflet-map',{tap:false,tapTolerance:30});
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'© OpenStreetMap contributors',
+    maxZoom:19, crossOrigin:'anonymous',
+    subdomains:['a','b','c']
+  }).addTo(map);
+  drawMarkers();
+}
+
+function drawMarkers(){
+  if(clusterGroup)map.removeLayer(clusterGroup);
+  polylines.forEach(function(p){map.removeLayer(p);});
+  polylines=[];
+  var days=curDay==='all'?itineraryData.days:itineraryData.days.filter(function(d){return d.day==curDay;});
+  clusterGroup=L.markerClusterGroup({maxClusterRadius:45,disableClusteringAtZoom:16,spiderfyOnMaxZoom:true,
+    iconCreateFunction:function(cl){return L.divIcon({className:'',
+      html:'<div style="width:34px;height:34px;border-radius:50%;background:#1a3a5c;color:white;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold;border:2.5px solid white;box-shadow:0 2px 8px rgba(0,0,0,.35);">'+cl.getChildCount()+'</div>',
+      iconSize:[34,34],iconAnchor:[17,17]});}});
+  var lc=['#4a90d9','#e07b5c','#5cb85c','#9b59b6','#f0a500','#e84393','#00b4d8','#06d6a0','#f72585','#7209b7','#4cc9f0'];
+  var bounds=[];
+  days.forEach(function(day,di){
+    var pts=[];
+    day.stops.forEach(function(stop){
+      var color=catColor[stop.category]||'#999';
+      var m=L.marker([stop.lat,stop.lng],{icon:makeIcon(stop.num,color)});
+      m.on('click',function(e){L.DomEvent.stopPropagation(e);openSheet(stop);});
+      clusterGroup.addLayer(m);
+      pts.push([stop.lat,stop.lng]);
+      bounds.push([stop.lat,stop.lng]);
+    });
+    if(pts.length>1){
+      var poly=L.polyline(pts,{color:lc[di%lc.length],weight:3,opacity:.65,dashArray:'7,5'}).addTo(map);
+      polylines.push(poly);
+    }
+  });
+  map.addLayer(clusterGroup);
+  if(bounds.length)map.fitBounds(bounds,{padding:[50,50]});
+}
+
+function filterDay(day){
+  curDay=day;
+  document.querySelectorAll('.mfbtn').forEach(function(b){b.classList.toggle('active',String(b.dataset.day)===String(day));});
+  if(map)drawMarkers();
+}
+
+function toggleMap(btn){
+  mapVisible=!mapVisible;
+  var panel=document.getElementById('map-panel');
+  var mc=document.getElementById('main-content');
+  var foot=document.querySelector('footer');
+  var fab=document.getElementById('edit-fab');
+  if(mapVisible){
+    var navH=document.getElementById('tab-nav').getBoundingClientRect().height;
+    panel.style.top=navH+'px';
+    panel.classList.add('visible');
+    mc.style.display='none';
+    if(foot)foot.style.display='none';
+    if(fab)fab.style.display='none';
+    btn.classList.add('active');
+    document.querySelectorAll('.tab-btn:not(#btn-map)').forEach(function(b){b.classList.remove('active');});
+    initMap();
+    setTimeout(function(){if(map)map.invalidateSize();},250);
+    setTimeout(function(){if(map)map.invalidateSize();},700);
+    setTimeout(function(){if(map)map.invalidateSize();},1500);
+  }else{
+    panel.classList.remove('visible');
+    mc.style.display='';
+    if(foot)foot.style.display='';
+    if(fab)fab.style.display='';
+    btn.classList.remove('active');
+    closeSheet();
+  }
+}
+// === 行前準備清單 Checklist ===
+const PREP_KEY = 'prep_checks_v1';
+
+function savePrepChecks() {
+  const checks = {};
+  document.querySelectorAll('.chk-item input[type="checkbox"]').forEach(cb => {
+    checks[cb.id] = cb.checked;
+    cb.closest('label').classList.toggle('done', cb.checked);
+  });
+  try { localStorage.setItem(PREP_KEY, JSON.stringify(checks)); } catch(e) {}
+}
+
+function loadPrepChecks() {
+  try {
+    const data = JSON.parse(localStorage.getItem(PREP_KEY) || '{}');
+    document.querySelectorAll('.chk-item input[type="checkbox"]').forEach(cb => {
+      if (data[cb.id]) {
+        cb.checked = true;
+        cb.closest('label').classList.add('done');
+      }
+    });
+  } catch(e) {}
+}
+
+function resetPrepChecks() {
+  if (!confirm('確定要清除所有勾選紀錄？')) return;
+  document.querySelectorAll('.chk-item input[type="checkbox"]').forEach(cb => {
+    cb.checked = false;
+    cb.closest('label').classList.remove('done');
+  });
+  try { localStorage.removeItem(PREP_KEY); } catch(e) {}
+}
+
+window.addEventListener('DOMContentLoaded', loadPrepChecks);
+
+
+// ============================================================
+// 天氣系統 v13：Open-Meteo API（免費，無需 API Key）
+// 版本A：每日標頭 badge / 版本B：獨立天氣頁籤
+// ============================================================
+
+const TRIP_START = new Date('2026-05-15');
+const FORECAST_DAYS = 16; // Open-Meteo 最多16天
+
+// 每天天氣地點設定（1~2個地點）
+const DAY_WEATHER = {
+  1: [
+    { name:'台中', flag:'🇹🇼', lat:24.1477, lng:120.6736 },
+    { name:'高松', flag:'🇯🇵', lat:34.3404, lng:134.0434 }
+  ],
+  2:  [{ name:'高松・琴平', flag:'🇯🇵', lat:34.1858, lng:133.8236 }],
+  3:  [{ name:'高松', flag:'🇯🇵', lat:34.3404, lng:134.0434 }],
+  4:  [
+    { name:'高松', flag:'🇯🇵', lat:34.3404, lng:134.0434 },
+    { name:'小豆島', flag:'🌿', lat:34.4869, lng:134.2047 }
+  ],
+  5:  [{ name:'小豆島', flag:'🌿', lat:34.4869, lng:134.2047 }],
+  6:  [
+    { name:'小豆島', flag:'🌿', lat:34.4869, lng:134.2047 },
+    { name:'高松', flag:'🇯🇵', lat:34.3404, lng:134.0434 }
+  ],
+  7:  [{ name:'高松', flag:'🇯🇵', lat:34.3404, lng:134.0434 }],
+  8:  [{ name:'三豊・父母之濱', flag:'🇯🇵', lat:34.0936, lng:133.7039 }],
+  9:  [{ name:'東香川・德島', flag:'🇯🇵', lat:34.2556, lng:134.2161 }],
+  10: [{ name:'高松', flag:'🇯🇵', lat:34.3404, lng:134.0434 }],
+  11: [{ name:'高松', flag:'🇯🇵', lat:34.3404, lng:134.0434 }]
+};
+
+// 版本B 地點切換選項
+const WEATHER_LOCS = [
+  { name:'高松', flag:'🇯🇵', lat:34.3404, lng:134.0434 },
+  { name:'小豆島', flag:'🌿', lat:34.4869, lng:134.2047 },
+  { name:'台中', flag:'🇹🇼', lat:24.1477, lng:120.6736 }
+];
+
+const WMO_ICON = {
+  0:'☀️',1:'🌤️',2:'⛅',3:'☁️',
+  45:'🌫️',48:'🌫️',
+  51:'🌦️',53:'🌦️',55:'🌧️',
+  61:'🌧️',63:'🌧️',65:'🌧️',
+  71:'🌨️',73:'🌨️',75:'🌨️',
+  80:'🌦️',81:'🌧️',82:'⛈️',
+  95:'⛈️',96:'⛈️',99:'⛈️'
+};
+const WMO_TEXT = {
+  0:'晴天',1:'大致晴',2:'多雲',3:'陰天',
+  45:'霧',48:'霧',51:'毛毛雨',53:'小雨',55:'中雨',
+  61:'小雨',63:'中雨',65:'大雨',71:'小雪',73:'中雪',75:'大雪',
+  80:'陣雨',81:'大陣雨',82:'暴雨',95:'雷雨',96:'雷雨夾冰雹',99:'劇烈雷雨'
+};
+const WEEKDAY = ['日','一','二','三','四','五','六'];
+
+// 計算旅遊第N天對應的真實日期
+function getTripDate(dayNum) {
+  const d = new Date(TRIP_START);
+  d.setDate(d.getDate() + dayNum - 1);
+  return d;
+}
+
+// 計算某日期距今幾天（正=未來）
+function daysFromNow(targetDate) {
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const t = new Date(targetDate);
+  t.setHours(0,0,0,0);
+  return Math.round((t - today) / 86400000);
+}
+
+// 呼叫 Open-Meteo，拿 16天 daily 預報
+// 用 Promise 快取：同一座標只發一次 request，多個呼叫者共用同一個 Promise
+const apiCache = {};
+async function fetchOpenMeteo(lat, lng) {
+  const key = `${lat},${lng}`;
+  if (apiCache[key]) return apiCache[key];
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}`
+    + `&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode,windspeed_10m_max,uv_index_max`
+    + `&timezone=Asia/Tokyo&forecast_days=16`;
+  // 把 Promise 本身存入快取，避免同時打出重複請求
+  apiCache[key] = fetch(url).then(r => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return r.json();
+  }).catch(e => {
+    delete apiCache[key]; // 失敗時清除快取，允許重試
+    console.error(`Open-Meteo fetch failed [${lat},${lng}]:`, e);
+    throw e;
+  });
+  return apiCache[key];
+}
+
+// 在 Open-Meteo daily 資料中找特定日期的 index
+// 使用本地時間格式化，避免 toISOString() 轉UTC造成台灣時區偏移
+function findDayIndex(data, targetDate) {
+  const y = targetDate.getFullYear();
+  const m = String(targetDate.getMonth() + 1).padStart(2, '0');
+  const d = String(targetDate.getDate()).padStart(2, '0');
+  const target = `${y}-${m}-${d}`;
+  return data.daily.time.indexOf(target);
+}
+
+// ── 版本A：渲染每日標頭 badge ──────────────────────────────
+async function renderDayBadges(dayNum) {
+  const container = document.getElementById(`wb-${dayNum}`);
+  if (!container) return;
+
+  const locs = DAY_WEATHER[dayNum];
+  const tripDate = getTripDate(dayNum);
+  const diff = daysFromNow(tripDate);
+
+  // 超出預報範圍
+  if (diff > FORECAST_DAYS) {
+    const openDate = new Date(tripDate);
+    openDate.setDate(openDate.getDate() - FORECAST_DAYS);
+    const mo = openDate.getMonth()+1, da = openDate.getDate();
+    container.innerHTML = `<span class="weather-badge wb-future">📅 天氣預報 ${mo}/${da} 後開放</span>`;
+    return;
+  }
+
+  container.innerHTML = `<span class="weather-badge wb-loading">⏳ 載入中…</span>`;
+
+  try {
+    const badges = await Promise.all(locs.map(async loc => {
+      const data = await fetchOpenMeteo(loc.lat, loc.lng);
+      const idx = findDayIndex(data, tripDate);
+      if (idx < 0) return null;
+      const icon = WMO_ICON[data.daily.weathercode[idx]] || '🌡️';
+      const hi   = Math.round(data.daily.temperature_2m_max[idx]);
+      const lo   = Math.round(data.daily.temperature_2m_min[idx]);
+      const rain = data.daily.precipitation_probability_max[idx];
+      return `<span class="weather-badge">
+        <span class="wb-loc">${loc.flag}${loc.name}</span>
+        <span>${icon}</span>
+        <span class="wb-temp">${hi}°</span>
+        <span class="wb-rain">/ ${lo}° 💧${rain}%</span>
+      </span>`;
+    }));
+    container.innerHTML = badges.filter(Boolean).join('');
+  } catch(e) {
+    console.error(`Day ${dayNum} weather error:`, e);
+    const msg = (e.message || '').includes('fetch') ? 'file://限制' : (e.message || '失敗');
+    container.innerHTML = `<span class="weather-badge wb-future" title="${e.message}">⚠ ${msg}</span>`;
+  }
+}
+
+// ── 版本B：獨立天氣頁面 ───────────────────────────────────
+let currentWeatherLocIdx = 0;
+
+async function loadWeatherB(locIdx) {
+  const loc = WEATHER_LOCS[locIdx];
+  document.getElementById('weather-b-loading').style.display = 'block';
+  document.getElementById('weather-b-panel').style.display = 'none';
+  document.getElementById('weather-b-future').style.display = 'none';
+
+  const tripDiff = daysFromNow(TRIP_START);
+
+  try {
+    const data = await fetchOpenMeteo(loc.lat, loc.lng);
+    document.getElementById('weather-b-loading').style.display = 'none';
+
+    if (tripDiff > FORECAST_DAYS) {
+      // 旅遊日超出預報範圍 → 顯示提示 + 今日當地天氣參考
+      const openDate = new Date(TRIP_START);
+      openDate.setDate(openDate.getDate() - FORECAST_DAYS);
+      const mo = openDate.getMonth()+1, da = openDate.getDate();
+      document.getElementById('weather-future-msg').innerHTML =
+        `🗓️ 旅遊日（8/2 起）距今還有 <strong>${tripDiff} 天</strong><br>`
+        + `預報資料將於 <strong>${mo}/${da}</strong> 起逐日開放<br>`
+        + `屆時重新開啟手冊即可看到完整預報`;
+
+      // 顯示今日參考天氣
+      const todayIdx = 0;
+      const icon = WMO_ICON[data.daily.weathercode[todayIdx]] || '🌡️';
+      const hi = Math.round(data.daily.temperature_2m_max[todayIdx]);
+      const lo = Math.round(data.daily.temperature_2m_min[todayIdx]);
+      const rain = data.daily.precipitation_probability_max[todayIdx];
+      const wind = Math.round(data.daily.windspeed_10m_max[todayIdx]);
+      const uv = data.daily.uv_index_max ? Math.round(data.daily.uv_index_max[todayIdx]) : '─';
+      const today = new Date();
+      document.getElementById('weather-b-today-ref').innerHTML = `
+        <div style="background:#f5f8fc;border-radius:10px;padding:14px 16px;">
+          <div style="font-size:15px;margin-bottom:10px">${loc.flag} ${loc.name}　今天（${today.getMonth()+1}/${today.getDate()}）</div>
+          <div style="font-size:32px;margin-bottom:8px">${icon} <span style="font-size:22px;font-weight:700;color:#1a3a5c">${hi}°C</span></div>
+          <div class="wdetail-row"><span class="wdetail-label">🌡️ 最低溫</span><span class="wdetail-val" style="color:#2c7fba">${lo}°C</span></div>
+          <div class="wdetail-row"><span class="wdetail-label">💧 降雨機率</span><span class="wdetail-val">${rain}%</span></div>
+          <div class="wdetail-row"><span class="wdetail-label">💨 風速</span><span class="wdetail-val">${wind} km/h</span></div>
+          <div class="wdetail-row"><span class="wdetail-label">☀️ 紫外線</span><span class="wdetail-val">${uv}</span></div>
+        </div>`;
+      document.getElementById('weather-b-future').style.display = 'block';
+    } else {
+      // 在預報範圍內 → 顯示完整7天預報
+      render7DayGrid(data, loc);
+      renderDayDetail(data, 0, loc);
+      document.getElementById('weather-b-panel').style.display = 'block';
+    }
+  } catch(e) {
+    console.error('Weather B load error:', e);
+    document.getElementById('weather-b-loading').innerHTML =
+      `<div style="background:#fff3f0;border-radius:8px;padding:16px;font-size:13px;line-height:2">
+        ⚠️ 天氣資料載入失敗<br>
+        <span style="color:#999;font-size:12px">錯誤：${e.message || String(e)}</span><br>
+        <small style="color:#aaa">若顯示「Failed to fetch」，請從 Chrome 選單 → 更多工具 → 以伺服器開啟，或改用 Edge 瀏覽</small><br>
+        <button onclick="loadWeatherB(${locIdx})" style="margin-top:8px;padding:6px 18px;border:1px solid #ccc;border-radius:20px;cursor:pointer;font-size:12px;background:white">🔄 重試</button>
+      </div>`;
+  }
+}
+
+function render7DayGrid(data, loc) {
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  let html = '';
+  const count = Math.min(7, data.daily.time.length);
+  for (let i = 0; i < count; i++) {
+    const d = new Date(data.daily.time[i]);
+    const isToday = daysFromNow(d) === 0;
+    const isTripDay = data.daily.time[i] >= '2026-05-15' && data.daily.time[i] <= '2026-05-26';
+    const dayLabel = isToday ? '今天' : `週${WEEKDAY[d.getDay()]}`;
+    const icon = WMO_ICON[data.daily.weathercode[i]] || '🌡️';
+    const hi = Math.round(data.daily.temperature_2m_max[i]);
+    const lo = Math.round(data.daily.temperature_2m_min[i]);
+    const rain = data.daily.precipitation_probability_max[i];
+    html += `<div class="w7-card${isToday?' today':''}" style="cursor:pointer${isTripDay?';border-color:#f0a500':''}" onclick="renderDayDetail(window._wdata, ${i}, window._wloc)">
+      <div class="w7-day">${dayLabel}</div>
+      <div class="w7-day">${d.getMonth()+1}/${d.getDate()}</div>
+      <div class="w7-icon">${icon}</div>
+      <div><span class="w7-hi">${hi}°</span> <span class="w7-lo">${lo}°</span></div>
+      <div class="w7-rain">💧${rain}%</div>
+    </div>`;
+  }
+  document.getElementById('w7-grid').innerHTML = html;
+  window._wdata = data;
+  window._wloc = loc;
+}
+
+function renderDayDetail(data, idx, loc) {
+  const d = new Date(data.daily.time[idx]);
+  const isToday = daysFromNow(d) === 0;
+  const label = isToday ? '今日' : `${d.getMonth()+1}/${d.getDate()}（週${WEEKDAY[d.getDay()]}）`;
+  document.getElementById('w-detail-title').textContent = `${loc.flag} ${loc.name}　${label}　詳細資訊`;
+  const icon = WMO_ICON[data.daily.weathercode[idx]] || '🌡️';
+  const hi = Math.round(data.daily.temperature_2m_max[idx]);
+  const lo = Math.round(data.daily.temperature_2m_min[idx]);
+  const rain = data.daily.precipitation_probability_max[idx];
+  const wind = Math.round(data.daily.windspeed_10m_max[idx]);
+  const uv = data.daily.uv_index_max ? Math.round(data.daily.uv_index_max[idx]) : '─';
+  const wtext = WMO_TEXT[data.daily.weathercode[idx]] || '─';
+  document.getElementById('w-detail-body').innerHTML = `
+    <div style="background:#f5f8fc;border-radius:10px;padding:14px 16px">
+      <div style="font-size:32px;margin-bottom:10px">${icon} <span style="font-size:22px;font-weight:700;color:#1a3a5c">${hi}°C</span> <span style="font-size:13px;color:#888">${wtext}</span></div>
+      <div class="wdetail-row"><span class="wdetail-label">🌡️ 最低溫</span><span class="wdetail-val" style="color:#2c7fba">${lo}°C</span></div>
+      <div class="wdetail-row"><span class="wdetail-label">💧 降雨機率</span><span class="wdetail-val">${rain}%</span></div>
+      <div class="wdetail-row"><span class="wdetail-label">💨 最大風速</span><span class="wdetail-val">${wind} km/h</span></div>
+      <div class="wdetail-row"><span class="wdetail-label">☀️ 紫外線指數</span><span class="wdetail-val">${uv}</span></div>
+    </div>`;
+}
+
+function switchWeatherLoc(idx) {
+  currentWeatherLocIdx = idx;
+  document.querySelectorAll('.wtab-btn').forEach((btn,i) => {
+    btn.classList.toggle('active', i === idx);
+  });
+  loadWeatherB(idx);
+}
+
+// ── 初始化 ────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', async () => {
+  // 版本B 先啟動（利用快取，後續版本A會共用同樣的請求）
+  loadWeatherB(0);
+
+  // 版本A：循序載入各天 badge，每天間隔 200ms
+  // 相同座標（如高松）的請求會自動命中 apiCache，不重複發送
+  for (let d = 1; d <= 11; d++) {
+    renderDayBadges(d);
+    await new Promise(r => setTimeout(r, 200));
+  }
+});
+
 </script>
 </body>
 </html>
