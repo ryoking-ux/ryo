@@ -237,7 +237,52 @@
     .sh-desc{font-size:13px;color:#555;line-height:1.75;padding:10px 0 14px;border-top:1px solid #f0f0f0;border-bottom:1px solid #f0f0f0;margin-bottom:14px;}
     .sh-maps{display:inline-block;background:#1a73e8;color:white;padding:10px 24px;border-radius:20px;font-size:14px;font-weight:500;text-decoration:none;}
     .sh-close{float:right;background:#f1f5f9;border:none;width:30px;height:30px;border-radius:50%;font-size:16px;cursor:pointer;color:#666;line-height:30px;text-align:center;}
-  </style>
+  
+/* ── 記帳工具 styles ── */
+#expense-tracker-app .et-wrap{max-width:100%;background:#F2F4F8;border-radius:16px;overflow:hidden}
+#expense-tracker-app{font-family:-apple-system,'PingFang TC','Noto Sans TC',sans-serif}
+#expense-tracker-app .card{background:#fff;border-radius:14px;padding:14px 16px;margin-bottom:10px;box-shadow:0 1px 6px rgba(0,0,0,.07);transition:border .2s}
+#expense-tracker-app .header{background:linear-gradient(145deg,#1E3F6F,#2C5F9A);padding:16px 16px 12px;color:#fff}
+#expense-tracker-app .summary-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+#expense-tracker-app .sum-box{background:rgba(255,255,255,.12);border-radius:10px;padding:8px;text-align:center}
+#expense-tracker-app .tab-bar{display:flex;background:#fff;border-bottom:1px solid #E8ECF2;position:sticky;top:52px;z-index:10}
+#expense-tracker-app .tab-btn{flex:1;padding:10px 0;font-size:13px;border:none;background:none;border-bottom:2.5px solid transparent;color:#94A3B8;cursor:pointer;font-family:inherit}
+#expense-tracker-app .tab-btn.active{color:#1E3F6F;font-weight:700;border-bottom-color:#1E3F6F}
+#expense-tracker-app .tab-content{padding:10px 10px 40px}
+#expense-tracker-app .toggle-row{display:flex;gap:8px;justify-content:center}
+#expense-tracker-app .pill-btn{padding:7px 16px;border-radius:22px;font-size:13px;border-width:1.5px;border-style:solid;background:#fff;cursor:pointer;font-family:inherit}
+#expense-tracker-app .field-label{font-size:11px;color:#94A3B8;margin-bottom:6px;font-weight:600;letter-spacing:.5px}
+#expense-tracker-app .amt-input{width:100%;font-size:36px;font-weight:800;border:none;border-bottom:2px solid #E8ECF2;outline:none;padding:4px 0;background:transparent;font-family:inherit}
+#expense-tracker-app .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+#expense-tracker-app .cat-btn{padding:10px 4px;border-radius:10px;border-width:2px;border-style:solid;background:#fff;text-align:center;cursor:pointer;font-family:inherit}
+#expense-tracker-app .pay-row{display:flex;gap:8px}
+#expense-tracker-app .pay-btn{flex:1;padding:10px 4px;border-radius:10px;border-width:2px;border-style:solid;background:#fff;text-align:center;cursor:pointer;font-family:inherit}
+#expense-tracker-app .chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+#expense-tracker-app .chips::-webkit-scrollbar{display:none}
+#expense-tracker-app .chip-wrap{flex-shrink:0;display:flex}
+#expense-tracker-app .chip-btn{padding:6px 10px;border-width:2px;border-style:solid;background:#fff;display:flex;align-items:center;gap:5px;white-space:nowrap;cursor:pointer;font-family:inherit}
+#expense-tracker-app .chip-del{padding:6px 7px;border-left:none;cursor:pointer;font-size:13px;border-width:2px;border-style:solid;font-family:inherit}
+#expense-tracker-app .chip-add{flex-shrink:0;padding:6px 12px;border-radius:10px;border:2px dashed #E8ECF2;background:#fff;font-size:12px;color:#94A3B8;white-space:nowrap;cursor:pointer;font-family:inherit}
+#expense-tracker-app .chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+#expense-tracker-app .add-row{margin-top:8px;display:flex;gap:6px}
+#expense-tracker-app .add-input{flex:1;border:1.5px solid #E8ECF2;border-radius:8px;padding:7px 10px;font-size:13px;outline:none;font-family:inherit}
+#expense-tracker-app .note-input{width:100%;border:1.5px solid #E8ECF2;border-radius:10px;padding:10px 13px;font-size:15px;outline:none;font-family:inherit}
+#expense-tracker-app .add-btn{width:100%;border:none;border-radius:13px;padding:14px;font-size:16px;font-weight:800;color:#fff;cursor:pointer;font-family:inherit;transition:all .3s}
+#expense-tracker-app .empty-box{text-align:center;padding:40px 20px;color:#94A3B8}
+#expense-tracker-app .bar-bg{background:#F2F4F8;border-radius:4px;height:6px}
+#expense-tracker-app .bar-fill{border-radius:4px;height:6px;transition:width .6s}
+#expense-tracker-app .tx-row{display:flex;align-items:center;gap:10px}
+#expense-tracker-app .tx-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+#expense-tracker-app .tx-info{flex:1;min-width:0}
+#expense-tracker-app .tx-name{font-size:13px;font-weight:600;color:#222;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#expense-tracker-app .tx-meta{font-size:11px;margin-top:2px;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+#expense-tracker-app .tx-del-btn{background:none;border:none;font-size:18px;color:#CCC;padding:0 2px;cursor:pointer}
+#expense-tracker-app .divider{height:1px;background:#F2F4F8;margin:10px 0}
+#expense-tracker-app .del-confirm{margin-top:8px;display:flex;gap:6px;justify-content:flex-end}
+@keyframes et-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+#expense-tracker-app .shake{animation:et-shake .4s ease}
+
+</style>
 </head>
 <body>
 
@@ -399,7 +444,7 @@
     <div style="background:#f0f7ff;border-radius:8px;padding:12px;border-left:3px solid #4a90d9">
       <p style="font-weight:bold;color:#1a3a5c;margin-bottom:6px;font-size:13px">🚗 自駕導航</p>
       <p style="font-size:13px"><strong>Yahoo!カーナビ</strong> <span style="background:#e05c5c;color:white;font-size:10px;padding:1px 6px;border-radius:8px">⚠️ 需日本Apple ID</span></p>
-      <p style="font-size:12px;color:#666">免費、日本道路最準確（或直接用 Google Maps）</p><div style="margin-top:5px;display:flex;gap:5px;flex-wrap:wrap"><a href="https://apps.apple.com/jp/app/id558781488" target="_blank" style="font-size:11px;background:#888;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🍎 iOS（JP）</a><a href="https://yahoo-car-navigation.jp.uptodown.com/android" target="_blank" style="font-size:11px;background:#01875f;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🤖 Android</a></div>
+      <p style="font-size:12px;color:#666">免費、日本道路最準確（或直接用 Google Maps）</p><div style="margin-top:5px;display:flex;gap:5px;flex-wrap:wrap"><a href="https://apps.apple.com/jp/app/id558781488" target="_blank" style="font-size:11px;background:#888;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🍎 iOS（JP）</a><a href="https://play.google.com/store/apps/details?id=jp.co.yahoo.android.carnavi" target="_blank" style="font-size:11px;background:#01875f;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🤖 Android</a></div>
     </div>
     <div style="background:#f0faf4;border-radius:8px;padding:12px;border-left:3px solid #27ae60">
       <p style="font-weight:bold;color:#1e5c2e;margin-bottom:6px;font-size:13px">🍜 美食查詢</p>
@@ -427,7 +472,7 @@
       <p style="font-size:13px"><strong>KLOOK</strong>（繁中）</p>
       <p style="font-size:12px;color:#666">景點門票/交通券，常有折扣</p><div style="margin-top:5px;display:flex;gap:5px;flex-wrap:wrap"><a href="https://apps.apple.com/app/id1227101561" target="_blank" style="font-size:11px;background:#000;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🍎 iOS</a><a href="https://play.google.com/store/apps/details?id=com.klook" target="_blank" style="font-size:11px;background:#01875f;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🤖 Android</a></div>
       <p style="font-size:13px;margin-top:6px"><strong>KKday</strong></p>
-      <p style="font-size:12px;color:#666">台灣品牌，日本景點票券折扣，繁中介面</p><div style="margin-top:5px;display:flex;gap:5px;flex-wrap:wrap"><a href="https://apps.apple.com/tw/app/id1086110964" target="_blank" style="font-size:11px;background:#000;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🍎 iOS</a><a href="https://play.google.com/store/apps/details?id=com.kkday.member&hl=zh_TW" target="_blank" style="font-size:11px;background:#01875f;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🤖 Android</a></div>
+      <p style="font-size:12px;color:#666">台灣品牌，日本景點票券折扣，繁中介面</p><div style="margin-top:5px;display:flex;gap:5px;flex-wrap:wrap"><a href="https://apps.apple.com/tw/app/id1086110964" target="_blank" style="font-size:11px;background:#000;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🍎 iOS</a><a href="https://play.google.com/store/apps/details?id=com.kkday.android" target="_blank" style="font-size:11px;background:#01875f;color:white;padding:2px 9px;border-radius:10px;text-decoration:none;white-space:nowrap">🤖 Android</a></div>
     </div>
     <div style="background:#f0faf4;border-radius:8px;padding:12px;border-left:3px solid #27ae60;grid-column:span 2">
       <p style="font-weight:bold;color:#1e5c2e;margin-bottom:6px;font-size:13px">💳 支付・IC卡</p>
@@ -4204,28 +4249,25 @@
 </div>
 
 <div id="budget" class="page">
-  <h1 style="font-size:22px;color:#1a3a5c;border-bottom:2px solid #2c5f8a;padding-bottom:10px;margin-bottom:16px">💰 旅行記帳頁</h1>
-  <h3 style="color:#2c5f8a;font-size:15px;margin-bottom:12px">預算概估（不含機票・住宿）</h3>
-  <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:20px">
-    <tr style="background:#1a3f6b;color:white"><th style="padding:8px">項目</th><th style="padding:8px;width:30%">估計</th><th style="padding:8px;width:25%">備註</th></tr>
-    <tr><td style="padding:8px">渡輪（高松⇆小豆島 ×2）</td><td style="padding:8px;text-align:center">約 2,800 圓</td><td style="padding:8px;font-size:12px">成人單程~700圓</td></tr>
-    <tr style="background:#f8f8f8"><td style="padding:8px">小豆島橄欖巴士二日券（×2）</td><td style="padding:8px;text-align:center">約 2,400 圓</td><td style="padding:8px;font-size:12px">8/5～8/6使用</td></tr>
-    <tr><td style="padding:8px">琴電一日券（×2，8/3）</td><td style="padding:8px;text-align:center">約 2,800 圓</td><td style="padding:8px;font-size:12px">省320/人</td></tr>
-    <tr style="background:#f8f8f8"><td style="padding:8px">四國水族館（大人2＋兒童）</td><td style="padding:8px;text-align:center">約 7,400 圓</td><td style="padding:8px;font-size:12px">成人2,400/兒1,300</td></tr>
-    <tr><td style="padding:8px">寒霞溪纜車（往返 大人2＋兒童）</td><td style="padding:8px;text-align:center">約 7,500 圓</td><td style="padding:8px;font-size:12px">成人2,500/兒1,250</td></tr>
-    <tr style="background:#f8f8f8"><td style="padding:8px">雲邊寺纜車（大人2＋兒童）</td><td style="padding:8px;text-align:center">約 4,800 圓</td><td style="padding:8px;font-size:12px">成人1,600/兒800(估)</td></tr>
-    <tr><td style="padding:8px">租車（8/9～8/10，含ETC）</td><td style="padding:8px;text-align:center">約 15,000–20,000 圓</td><td style="padding:8px;font-size:12px">Honda HR-V同級</td></tr>
-    <tr style="background:#f8f8f8"><td style="padding:8px">餐費（10天全程）</td><td style="padding:8px;text-align:center">約 60,000–80,000 圓</td><td style="padding:8px;font-size:12px">含骨付鳥/烏龍麵</td></tr>
-    <tr><td style="padding:8px">伴手禮・藥妝・採買</td><td style="padding:8px;text-align:center">約 20,000–30,000 圓</td><td style="padding:8px;font-size:12px">橄欖油、素麵、藥妝</td></tr>
-    <tr style="background:#ffd;font-weight:bold"><td style="padding:8px">🔢 總計（不含機票・住宿）</td><td style="padding:8px;text-align:center">約 ¥128,000–167,000</td><td style="padding:8px;font-size:12px">≈ NT$28,000–37,000</td></tr>
-  </table>
-  <h3 style="color:#2c5f8a;font-size:15px;margin-bottom:12px">每日記帳</h3>
-  <table style="width:100%;border-collapse:collapse;font-size:13px">
-    <tr style="background:#1a3f6b;color:white"><th style="padding:8px;width:14%">日期</th><th style="padding:8px;width:46%">項目</th><th style="padding:8px;width:22%">金額（日圓）</th><th style="padding:8px;width:18%">備註</th></tr>
-    <tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr><tr style=background:#f8f8f8><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td><td style="padding:9px 8px"></td></tr>
-    <tr style="background:#ffd;font-weight:bold"><td style="padding:9px 8px" colspan="2">合計</td><td style="padding:9px 8px"></td><td style="padding:9px 8px;font-size:12px">×0.22 = NT$</td></tr>
-  </table>
-  <p style="font-size:13px;color:#555;margin-top:12px">💡 建議每天晚上回飯店後記帳，可同步用 Google 試算表記錄！</p>
+  <h1 style="font-size:22px;color:#1a3a5c;border-bottom:2px solid #2c5f8a;padding-bottom:10px;margin-bottom:12px">💰 旅行記帳</h1>
+  <p style="font-size:12px;color:#888;margin-bottom:14px">💡 資料儲存在本機瀏覽器，不會上傳雲端。可匯出 Excel 備份。</p>
+  <div id="expense-tracker-app" style="border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.1);margin-bottom:16px">
+    <div style="display:flex;align-items:center;justify-content:center;height:120px;background:#F2F4F8;font-size:14px;color:#94A3B8">⏳ 記帳工具載入中...</div>
+  </div>
+  <div style="background:#fff8ec;border-radius:10px;padding:12px 14px;border-left:3px solid #f0a500">
+    <div style="font-size:13px;font-weight:700;color:#c8860a;margin-bottom:6px">📊 預算概估（不含機票・住宿）</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px">
+      <tr style="background:#1a3f6b;color:white"><th style="padding:6px 8px;text-align:left">項目</th><th style="padding:6px 8px;width:32%">估計</th><th style="padding:6px 8px;width:22%">備註</th></tr>
+      <tr><td style="padding:6px 8px">渡輪（高松⇆小豆島 ×2）</td><td style="padding:6px 8px;text-align:center">¥2,800</td><td style="padding:6px 8px;font-size:11px">單程~700/人</td></tr>
+      <tr style="background:#f8f8f8"><td style="padding:6px 8px">小豆島橄欖巴士二日券（×2）</td><td style="padding:6px 8px;text-align:center">¥2,400</td><td style="padding:6px 8px;font-size:11px">8/5–8/6</td></tr>
+      <tr><td style="padding:6px 8px">琴電一日券（×2）</td><td style="padding:6px 8px;text-align:center">¥2,800</td><td style="padding:6px 8px;font-size:11px">8/3</td></tr>
+      <tr style="background:#f8f8f8"><td style="padding:6px 8px">景點門票合計（4處）</td><td style="padding:6px 8px;text-align:center">¥22,900</td><td style="padding:6px 8px;font-size:11px">水族館/纜車×2/動物園</td></tr>
+      <tr><td style="padding:6px 8px">租車（8/9–8/10）</td><td style="padding:6px 8px;text-align:center">¥15,000–20,000</td><td style="padding:6px 8px;font-size:11px">含ETC</td></tr>
+      <tr style="background:#f8f8f8"><td style="padding:6px 8px">餐費（10天）</td><td style="padding:6px 8px;text-align:center">¥60,000–80,000</td><td style="padding:6px 8px;font-size:11px">含骨付鳥/烏龍麵</td></tr>
+      <tr><td style="padding:6px 8px">伴手禮・藥妝</td><td style="padding:6px 8px;text-align:center">¥20,000–30,000</td><td style="padding:6px 8px;font-size:11px">橄欖油・素麵・藥妝</td></tr>
+      <tr style="background:#ffd;font-weight:bold"><td style="padding:6px 8px">🔢 總計</td><td style="padding:6px 8px;text-align:center">¥128,000–167,000</td><td style="padding:6px 8px;font-size:11px">≈ NT$28,000–37,000</td></tr>
+    </table>
+  </div>
 </div>
 
 </div><!-- /main-content -->
@@ -4235,11 +4277,606 @@
   style="position:fixed;bottom:24px;right:20px;z-index:200;background:#2c5f8a;color:white;border:none;border-radius:50%;width:54px;height:54px;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,.35);cursor:pointer;display:flex;align-items:center;justify-content:center">✏️</button>
 
 <footer style="text-align:center;padding:32px 20px;background:#f0f0f0;font-size:12px;color:#888">
-  <p><strong>2026 香川・小豆島 夏季自由行手冊 v24</strong></p>
+  <p><strong>2026 香川・小豆島 夏季自由行手冊 v27</strong></p>
   <p style="margin-top:4px">手機版完整版　│　可列印為 PDF　│　✏️ 點右下角進入編輯模式</p>
 </footer>
 
 <script>
+
+// ── 旅行記帳工具 (isolated scope) ──
+(function() {
+// ── Constants ──────────────────────────────────────────────
+const CATS=[
+  {id:'dining',       name:'餐飲',    icon:'🍜',color:'#FF6B6B',big:'食'},
+  {id:'transport',    name:'交通',    icon:'🚃',color:'#3ECFCF',big:'行'},
+  {id:'entertainment',name:'娛樂',    icon:'🎡',color:'#9B7FE8',big:'育樂'},
+  {id:'accommodation',name:'居住費用',icon:'🏨',color:'#F59E0B',big:'住'},
+  {id:'snacks',       name:'零食甜點',icon:'🍡',color:'#F472B6',big:'食'},
+  {id:'other',        name:'其他',    icon:'💼',color:'#7CB9E8',big:'其他'},
+];
+const DEF_CARDS=[
+  {id:'c1',name:'玉山JCB',   color:'#4A90D9'},
+  {id:'c2',name:'永豐大集點',color:'#E87040'},
+  {id:'c3',name:'台新',      color:'#E84050'},
+  {id:'c4',name:'國泰世華',  color:'#8B7FE8'},
+  {id:'c5',name:'中信',      color:'#34A85A'},
+];
+const DEF_APPS=[
+  {id:'a1',name:'Line Pay'},
+  {id:'a2',name:'全支付'},
+  {id:'a3',name:'Taiwan Pay'},
+  {id:'a4',name:'Pi錢包'},
+];
+const CARD_COLORS=['#4A90D9','#E87040','#E84050','#8B7FE8','#34A85A','#F59E0B','#F472B6','#3ECFCF'];
+const STORAGE_KEYS=['travel_exp_v3','travel_exp_v2','exp_v3','exp_v2','exp_v1'];
+
+// ── Helpers ────────────────────────────────────────────────
+const fmt=n=>Math.round(n).toLocaleString();
+const nowMon=()=>new Date().toISOString().slice(0,7);
+function localTS(){
+  const d=new Date(),p=n=>String(n).padStart(2,'0');
+  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}T${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+}
+const catOf=id=>CATS.find(c=>c.id===id)||CATS[5];
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const xmlEsc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function payLabel(pay,detail){
+  if(pay==='cash')return{icon:'💴',name:'現金',color:null};
+  if(pay==='card'){const c=S.cards.find(c=>c.id===detail);return{icon:'💳',name:c?c.name:'信用卡',color:c?.color||null};}
+  const a=S.apps.find(a=>a.id===detail);return{icon:'📱',name:a?a.name:'電子支付',color:null};
+}
+function groupByDate(ts){
+  const m={};
+  ts.forEach(t=>{const d=t.ts.slice(0,10);if(!m[d])m[d]=[];m[d].push(t);});
+  return m;
+}
+
+// ── State ──────────────────────────────────────────────────
+const S={
+  tab:'add', txns:[], month:nowMon(),
+  rate:0.218, rateInput:'0.218', rateOpen:false, rateSrc:'manual',
+  cards:DEF_CARDS.map(c=>({...c})),
+  apps:DEF_APPS.map(a=>({...a})),
+  currency:'JPY', type:'expense',
+  amount:'', cat:'dining', pay:'cash',
+  selCard:'c1', selApp:'a1', note:'',
+  addingCard:false, addingApp:false,
+  newCard:'', newApp:'',
+  delId:null, expMsg:'', flash:false, dragCard:null, dragApp:null,
+};
+
+// ── Storage ────────────────────────────────────────────────
+function loadData(){
+  for(const key of STORAGE_KEYS){
+    try{
+      const d=JSON.parse(localStorage.getItem(key)||'null');
+      if(d&&(d.txns||d.rate)){
+        if(d.txns)  S.txns=d.txns;
+        if(d.cards) S.cards=d.cards;
+        if(d.apps)  S.apps=d.apps;
+        if(d.rate){S.rate=d.rate;S.rateInput=String(d.rate);}
+        break;
+      }
+    }catch(e){}
+  }
+}
+function saveData(){
+  try{localStorage.setItem('travel_exp_v3',JSON.stringify({txns:S.txns,rate:S.rate,cards:S.cards,apps:S.apps}));}catch(e){}
+}
+
+// ── Computed ───────────────────────────────────────────────
+function getFiltered(){return S.txns.filter(t=>t.ts.startsWith(S.month));}
+function getExpenses(){return getFiltered().filter(t=>t.type==='expense');}
+function getIncomes() {return getFiltered().filter(t=>t.type==='income');}
+function totalExp()   {return getExpenses().reduce((s,t)=>s+t.twd,0);}
+function totalInc()   {return getIncomes().reduce((s,t)=>s+t.twd,0);}
+function pieData(){
+  return CATS.map(c=>({...c,value:getExpenses().filter(t=>t.cat===c.id).reduce((s,t)=>s+t.twd,0)})).filter(d=>d.value>0);
+}
+
+// ── Canvas Pie Chart ───────────────────────────────────────
+function drawPie(data){
+  const canvas=document.getElementById('pieCanvas');
+  if(!canvas||!data.length)return;
+  const dpr=window.devicePixelRatio||1;
+  const size=Math.min(260,window.innerWidth-80);
+  canvas.width=size*dpr; canvas.height=size*dpr;
+  canvas.style.width=size+'px'; canvas.style.height=size+'px';
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+  const cx=size/2,cy=size/2,r=size*.42,ir=size*.25;
+  const total=data.reduce((s,d)=>s+d.value,0);
+  let ang=-Math.PI/2;
+  ctx.clearRect(0,0,size,size);
+  data.forEach(d=>{
+    const sw=(d.value/total)*Math.PI*2;
+    ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,ang,ang+sw);ctx.closePath();
+    ctx.fillStyle=d.color;ctx.fill();ang+=sw;
+  });
+  ctx.beginPath();ctx.arc(cx,cy,ir,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();
+  ctx.fillStyle='#1E3F6F';ctx.textAlign='center';
+  const fs=Math.round(size*.065);
+  ctx.font=`bold ${fs}px -apple-system,sans-serif`;ctx.fillText('支出',cx,cy-size*.04);
+  ctx.font=`bold ${Math.round(fs*1.1)}px -apple-system,sans-serif`;ctx.fillText('$'+fmt(total),cx,cy+size*.045);
+  ctx.font=`${Math.round(fs*.8)}px -apple-system,sans-serif`;ctx.fillStyle='#94A3B8';ctx.fillText('TWD',cx,cy+size*.095);
+}
+
+// ── Excel Export ───────────────────────────────────────────
+function exportExcel(){
+  const all=getFiltered();
+  if(!all.length){showMsg('⚠️ 本月無資料');return;}
+  const headers=['日期','類型','金額(原幣)','幣別','金額(TWD)','分類','大類','支付方式','備註'];
+  const colWidths=[140,50,80,50,80,80,50,110,160];
+  const rows=all.map(t=>{
+    const pl=payLabel(t.pay,t.payDetail);
+    const c=catOf(t.cat);
+    return{
+      isExp:t.type==='expense',
+      cells:[t.ts.slice(0,16).replace('T',' '),t.type==='expense'?'支出':'收入',
+             t.amount,t.currency,Math.round(t.twd),c.name,c.big,pl.name,t.note||''],
+      numCols:[2,4] // 0-indexed cols that are numbers
+    };
+  });
+  const hdrRow=`<Row>${headers.map(h=>`<Cell ss:StyleID="hdr"><Data ss:Type="String">${xmlEsc(h)}</Data></Cell>`).join('')}</Row>`;
+  const dataRows=rows.map((r,ri)=>{
+    const bg=ri%2===1?' ss:StyleID="alt"':'';
+    return`<Row>${r.cells.map((v,ci)=>{
+      const isNum=ci===2||ci===4;
+      const suf=isNum?(r.isExp?' ss:StyleID="numExp"':' ss:StyleID="numInc"'):(r.isExp&&ci===1?' ss:StyleID="exp"':(!r.isExp&&ci===1?' ss:StyleID="inc"':bg?bg.trim().replace(' ss:StyleID=','').replace(/"/g,'')?` ss:StyleID="alt"`:'':''));
+      const styleAttr=isNum?(r.isExp?` ss:StyleID="numExp"`:(` ss:StyleID="numInc"`)): (ci===1?(r.isExp?` ss:StyleID="exp"`:` ss:StyleID="inc"`): (ri%2===1?` ss:StyleID="alt"`:''));
+      const type=isNum?'Number':'String';
+      return`<Cell${styleAttr}><Data ss:Type="${type}">${xmlEsc(String(v))}</Data></Cell>`;
+    }).join('')}</Row>`;
+  }).join('');
+  // Summary row
+  const tExp=totalExp(),tInc=totalInc();
+  const sumRow=`<Row><Cell ss:StyleID="sum"><Data ss:Type="String">合計</Data></Cell><Cell/><Cell/><Cell/><Cell ss:StyleID="sumNum"><Data ss:Type="Number">${Math.round(tExp)}</Data></Cell><Cell/><Cell/><Cell/><Cell/></Row>`;
+
+  const xml=`<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+  <Styles>
+    <Style ss:ID="hdr"><Alignment ss:Horizontal="Center"/><Font ss:Bold="1" ss:Color="#FFFFFF" ss:Size="11"/><Interior ss:Color="#1E3F6F" ss:Pattern="Solid"/></Style>
+    <Style ss:ID="exp"><Font ss:Color="#CC3333"/></Style>
+    <Style ss:ID="inc"><Font ss:Color="#007700"/></Style>
+    <Style ss:ID="numExp"><NumberFormat ss:Format="#,##0"/><Font ss:Color="#CC3333" ss:Bold="1"/></Style>
+    <Style ss:ID="numInc"><NumberFormat ss:Format="#,##0"/><Font ss:Color="#007700" ss:Bold="1"/></Style>
+    <Style ss:ID="alt"><Interior ss:Color="#F5F7FB" ss:Pattern="Solid"/></Style>
+    <Style ss:ID="sum"><Font ss:Bold="1"/><Interior ss:Color="#E8ECF2" ss:Pattern="Solid"/></Style>
+    <Style ss:ID="sumNum"><NumberFormat ss:Format="#,##0"/><Font ss:Bold="1" ss:Color="#CC3333"/><Interior ss:Color="#E8ECF2" ss:Pattern="Solid"/></Style>
+  </Styles>
+  <Worksheet ss:Name="旅行記帳明細">
+    <Table>${colWidths.map(w=>`<Column ss:Width="${w}"/>`).join('')}
+      ${hdrRow}
+      ${dataRows}
+      <Row/>
+      ${sumRow}
+    </Table>
+    <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+      <FreezePanes/><FrozenNoSplit/><SplitHorizontal>1</SplitHorizontal><TopRowBottomPane>1</TopRowBottomPane>
+    </WorksheetOptions>
+  </Worksheet>
+</Workbook>`;
+  try{
+    const blob=new Blob([xml],{type:'application/vnd.ms-excel;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download='旅行記帳-'+S.month+'.xls';
+    document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);
+    showMsg('✅ Excel 下載成功');
+  }catch(e){
+    showMsg('⚠️ 下載失敗，請重試');
+  }
+}
+function showMsg(msg,dur=3000){S.expMsg=msg;render();setTimeout(()=>{S.expMsg='';render();},dur);}
+
+// ── HTML Builders ──────────────────────────────────────────
+function buildHeader(){
+  const tE=totalExp(),tI=totalInc(),bal=tI-tE;
+  return`<div class="header">
+  <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px">
+    <div><div style="font-size:18px;font-weight:800">✈️ 旅行記帳本</div>
+      <div style="font-size:11px;opacity:.7;margin-top:2px">九州・香川 Family Trip</div></div>
+    <input type="month" id="monthPicker" value="${S.month}"
+      style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:5px 9px;font-size:13px;outline:none">
+  </div>
+  <div class="summary-grid">
+    <div class="sum-box"><div style="font-size:10px;opacity:.75;margin-bottom:3px">支出</div><div style="font-size:15px;font-weight:800;color:#FF6B6B">-$${fmt(tE)}</div><div style="font-size:9px;opacity:.6;margin-top:1px">TWD</div></div>
+    <div class="sum-box"><div style="font-size:10px;opacity:.75;margin-bottom:3px">收入</div><div style="font-size:15px;font-weight:800;color:#34C77C">+$${fmt(tI)}</div><div style="font-size:9px;opacity:.6;margin-top:1px">TWD</div></div>
+    <div class="sum-box"><div style="font-size:10px;opacity:.75;margin-bottom:3px">結餘</div><div style="font-size:15px;font-weight:800;color:${bal>=0?'#34C77C':'#FF6B6B'}">${bal>=0?'':'-'}$${fmt(Math.abs(bal))}</div><div style="font-size:9px;opacity:.6;margin-top:1px">TWD</div></div>
+  </div>
+  ${S.rateOpen?`<div style="display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.25);border-radius:10px;padding:8px 10px">
+    <span style="font-size:11px;opacity:.8;white-space:nowrap">1 JPY =</span>
+    <input id="rateInput" type="number" step="0.001" value="${S.rateInput}"
+      style="flex:1;min-width:0;border-radius:7px;border:2px solid rgba(255,255,255,.7);padding:5px 8px;font-size:16px;font-weight:700;background:#fff;color:#1E3F6F;outline:none">
+    <span style="font-size:11px;opacity:.8">TWD</span>
+    <button id="rateSave" style="background:#34C77C;color:#fff;border:none;border-radius:7px;padding:6px 12px;font-size:13px;font-weight:700">✓</button>
+    <button id="rateCancel" style="background:rgba(255,255,255,.2);color:#fff;border:none;border-radius:7px;padding:6px 9px;font-size:13px">✕</button>
+  </div>`:`<div style="display:flex;align-items:center;gap:6px">
+    <button id="rateToggle" style="background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:5px 10px;font-size:11px;display:flex;align-items:center;gap:5px">
+      <span>💱 1 JPY ＝ ${S.rate} TWD</span>
+      <span style="font-size:9px;background:${S.rateSrc==='auto'?'#34C77C':'rgba(255,255,255,.3)'};border-radius:4px;padding:1px 5px;font-weight:700">${S.rateSrc==='auto'?'🟢 即時':'✏️ 手動'}</span>
+    </button>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
+      ${S.expMsg?`<span style="font-size:11px;color:#98FFCA;font-weight:600">${esc(S.expMsg)}</span>`:''}
+      <button id="exportBtn" style="font-size:11px;background:#34C77C;color:#fff;border:none;border-radius:7px;padding:5px 10px;font-weight:700">⬇ Excel</button>
+    </div>
+  </div>`}
+</div>`;
+}
+
+function buildTabs(){
+  return`<div class="tab-bar">${[{id:'add',l:'📝 記帳'},{id:'chart',l:'📊 圖表'},{id:'list',l:'📋 明細'}].map(t=>`<button class="tab-btn${S.tab===t.id?' active':''}" data-tab="${t.id}">${t.l}</button>`).join('')}</div>`;
+}
+
+function buildAdd(){
+  const toTWD=S.currency==='JPY'&&S.amount?Math.round(parseFloat(S.amount||0)*S.rate):null;
+  const aC=S.type==='expense'?'#FF6B6B':'#34C77C';
+  return`<div class="tab-content">
+  <div class="card" style="display:flex;flex-direction:column;gap:10px">
+    <div class="toggle-row">
+      <button class="pill-btn" data-cur="TWD" style="border-color:#1E3F6F;background:${S.currency==='TWD'?'#1E3F6F':'#fff'};color:${S.currency==='TWD'?'#fff':'#1E3F6F'}">🇹🇼 台幣</button>
+      <button class="pill-btn" data-cur="JPY" style="border-color:#E8A020;background:${S.currency==='JPY'?'#E8A020':'#fff'};color:${S.currency==='JPY'?'#fff':'#E8A020'}">🇯🇵 日圓</button>
+    </div>
+    <div class="toggle-row">
+      <button class="pill-btn" data-type="expense" style="border-color:#FF6B6B;background:${S.type==='expense'?'#FF6B6B':'#fff'};color:${S.type==='expense'?'#fff':'#FF6B6B'}">💸 支出</button>
+      <button class="pill-btn" data-type="income"  style="border-color:#34C77C;background:${S.type==='income'?'#34C77C':'#fff'};color:${S.type==='income'?'#fff':'#34C77C'}">💰 收入</button>
+    </div>
+  </div>
+  <div class="card" id="amtCard">
+    <div class="field-label">金額 ${S.currency==='JPY'?'（日圓 ¥）':'（台幣 $）'}</div>
+    <input id="amtInput" class="amt-input" type="number" placeholder="0" inputmode="decimal" style="color:${aC}">
+    <div id="jpyPreview" style="display:${toTWD&&toTWD>0?'flex':'none'};align-items:center;gap:6px;margin-top:8px">
+      <span style="font-size:11px;color:#94A3B8">≈</span>
+      <span id="previewVal" style="font-size:22px;font-weight:700;color:#1E3F6F">TWD $${toTWD?fmt(toTWD):''}</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="field-label">分類</div>
+    <div class="cat-grid">
+      ${CATS.map(c=>`<button class="cat-btn" data-cat="${c.id}" style="border-color:${S.cat===c.id?c.color:'#E8ECF2'};background:${S.cat===c.id?c.color+'18':'#fff'}">
+        <div style="font-size:22px">${c.icon}</div>
+        <div style="font-size:11px;font-weight:${S.cat===c.id?700:400};color:${S.cat===c.id?c.color:'#555'};margin-top:3px">${c.name}</div>
+        <div style="font-size:9px;color:#94A3B8;margin-top:1px">${c.big}</div>
+      </button>`).join('')}
+    </div>
+  </div>
+  <div class="card">
+    <div class="field-label">支付方式</div>
+    <div class="pay-row" style="margin-bottom:${S.pay!=='cash'?14:0}px">
+      ${[{id:'cash',icon:'💴',label:'現金'},{id:'card',icon:'💳',label:'信用卡'},{id:'app',icon:'📱',label:'APP/電子支付'}].map(p=>`
+      <button class="pay-btn" data-pay="${p.id}" style="border-color:${S.pay===p.id?'#1E3F6F':'#E8ECF2'};background:${S.pay===p.id?'#EBF2FB':'#fff'}">
+        <div style="font-size:22px">${p.icon}</div>
+        <div style="font-size:10px;font-weight:${S.pay===p.id?700:400};color:${S.pay===p.id?'#1E3F6F':'#555'};margin-top:4px;line-height:1.3">${p.label}</div>
+      </button>`).join('')}
+    </div>
+    ${S.pay==='card'?buildCardPicker():''}
+    ${S.pay==='app'?buildAppPicker():''}
+  </div>
+  <div class="card"><input id="noteInput" class="note-input" placeholder="📝 備註（選填）"></div>
+  <button id="addBtn" class="add-btn" style="background:${S.flash?'#34C77C':'linear-gradient(135deg,#1E3F6F,#4A90D9)'}">
+    ${S.flash?'✅  已記錄！':'＋  新增記錄'}
+  </button>
+</div>`;
+}
+
+function buildCardPicker(){
+  return`<div>
+    <div class="field-label" style="margin-bottom:8px">選擇信用卡</div>
+    <div class="chips">
+      ${S.cards.map(c=>`<div class="chip-wrap">
+        <button class="chip-btn" data-selcard="${c.id}" draggable="true" data-dragcard="${c.id}" style="border-radius:${S.selCard===c.id?'10px 0 0 10px':10}px;border-color:${S.selCard===c.id?c.color:'#E8ECF2'};background:${S.selCard===c.id?c.color+'15':'#fff'};cursor:grab">
+          <div class="chip-dot" style="background:${c.color}"></div>
+          <span style="font-size:12px;font-weight:${S.selCard===c.id?700:400};color:${S.selCard===c.id?c.color:'#444'}">${esc(c.name)}</span>
+        </button>
+        ${S.selCard===c.id?`<button class="chip-del" data-delcard="${c.id}" style="border-color:${c.color};background:${c.color}15;color:${c.color};border-radius:0 10px 10px 0">×</button>`:''}
+      </div>`).join('')}
+      <button class="chip-add" id="toggleAddCard">＋ 新增</button>
+    </div>
+    ${S.addingCard?`<div class="add-row">
+      <input id="newCardInput" class="add-input" placeholder="卡名（如：玉山JCB）" value="${esc(S.newCard)}">
+      <button id="doAddCard" style="background:#1E3F6F;color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:13px;font-weight:700">新增</button>
+      <button id="cancelAddCard" style="background:#f0f0f0;color:#666;border:none;border-radius:8px;padding:7px 10px;font-size:13px">✕</button>
+    </div>`:''}
+  </div>`;
+}
+
+function buildAppPicker(){
+  return`<div>
+    <div class="field-label" style="margin-bottom:8px">選擇 APP / 電子支付</div>
+    <div class="chips">
+      ${S.apps.map(a=>`<div class="chip-wrap">
+        <button class="chip-btn" data-selapp="${a.id}" draggable="true" data-dragapp="${a.id}" style="border-radius:${S.selApp===a.id?'10px 0 0 10px':10}px;border-color:${S.selApp===a.id?'#4A90D9':'#E8ECF2'};background:${S.selApp===a.id?'#EBF2FB':'#fff'};cursor:grab">
+          <span style="font-size:12px;font-weight:${S.selApp===a.id?700:400};color:${S.selApp===a.id?'#4A90D9':'#444'}">${esc(a.name)}</span>
+        </button>
+        ${S.selApp===a.id?`<button class="chip-del" data-delapp="${a.id}" style="border-color:#4A90D9;background:#EBF2FB;color:#4A90D9;border-radius:0 10px 10px 0">×</button>`:''}
+      </div>`).join('')}
+      <button class="chip-add" id="toggleAddApp">＋ 新增</button>
+    </div>
+    ${S.addingApp?`<div class="add-row">
+      <input id="newAppInput" class="add-input" placeholder="APP 名（如：Line Pay）" value="${esc(S.newApp)}">
+      <button id="doAddApp" style="background:#4A90D9;color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:13px;font-weight:700">新增</button>
+      <button id="cancelAddApp" style="background:#f0f0f0;color:#666;border:none;border-radius:8px;padding:7px 10px;font-size:13px">✕</button>
+    </div>`:''}
+  </div>`;
+}
+
+function buildChart(){
+  const pd=pieData(),tE=totalExp();
+  if(!pd.length)return`<div class="tab-content"><div class="card empty-box"><div style="font-size:48px;margin-bottom:14px">📊</div><div style="font-weight:600">本月尚無支出記錄</div><div style="font-size:12px;margin-top:6px">先到「記帳」新增幾筆吧</div></div></div>`;
+  const exp=getExpenses();
+  const mkBar=(name,amt,color)=>{const pct=(amt/tE*100).toFixed(1);return`<div style="margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px">
+      <div style="width:10px;height:10px;border-radius:3px;background:${color};flex-shrink:0"></div>
+      <span style="flex:1;font-size:13px;font-weight:600;color:${color}">${esc(name)}</span>
+      <span style="font-size:13px;font-weight:700;color:${color}">$${fmt(amt)}</span>
+      <span style="font-size:11px;color:#94A3B8;width:40px;text-align:right">${pct}%</span>
+    </div>
+    <div class="bar-bg"><div class="bar-fill" style="width:${Math.max(2,parseFloat(pct))}%;background:${color}"></div></div>
+  </div>`;};
+  return`<div class="tab-content">
+    <div class="card">
+      <div style="font-size:14px;font-weight:700;color:#1E3F6F;margin-bottom:4px">支出分類圓餅圖</div>
+      <div style="font-size:11px;color:#94A3B8;margin-bottom:12px">本月總支出 $${fmt(tE)} TWD</div>
+      <div style="display:flex;justify-content:center;margin-bottom:16px"><canvas id="pieCanvas"></canvas></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+        ${pd.map(d=>`<div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:3px;background:${d.color};flex-shrink:0"></div><span style="font-size:12px;color:#555">${d.icon} ${d.name}</span></div>`).join('')}
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:14px;font-weight:700;color:#1E3F6F;margin-bottom:12px">分類明細</div>
+      ${[...pd].sort((a,b)=>b.value-a.value).map(d=>mkBar(d.name,d.value,d.color)).join('')}
+    </div>
+    ${exp.some(t=>t.pay==='card')?`<div class="card"><div style="font-size:14px;font-weight:700;color:#1E3F6F;margin-bottom:12px">💳 信用卡消費分佈</div>${S.cards.map(c=>{const a=exp.filter(t=>t.pay==='card'&&t.payDetail===c.id).reduce((s,t)=>s+t.twd,0);return a?mkBar(c.name,a,c.color):'';}).join('')}</div>`:''}
+    ${exp.some(t=>t.pay==='app')?`<div class="card"><div style="font-size:14px;font-weight:700;color:#1E3F6F;margin-bottom:12px">📱 電子支付分佈</div>${S.apps.map(a=>{const amt=exp.filter(t=>t.pay==='app'&&t.payDetail===a.id).reduce((s,t)=>s+t.twd,0);return amt?mkBar(a.name,amt,'#4A90D9'):'';}).join('')}</div>`:''}
+  </div>`;
+}
+
+function buildList(){
+  const all=getFiltered();
+  if(!all.length)return`<div class="tab-content"><div class="card empty-box"><div style="font-size:48px;margin-bottom:14px">📋</div><div style="font-weight:600">本月尚無記錄</div></div></div>`;
+  const g=groupByDate(all);
+  return`<div class="tab-content">${Object.keys(g).sort((a,b)=>b.localeCompare(a)).map(date=>{
+    const dayT=g[date];
+    const dayTotal=dayT.filter(t=>t.type==='expense').reduce((s,t)=>s+t.twd,0);
+    return`<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 4px;margin-bottom:4px">
+      <span style="font-size:12px;font-weight:700;color:#94A3B8">${date}</span>
+      ${dayTotal>0?`<span style="font-size:12px;color:#FF6B6B">-$${fmt(dayTotal)}</span>`:''}
+    </div>
+    <div class="card">${dayT.map((t,i)=>{
+      const c=catOf(t.cat),pl=payLabel(t.pay,t.payDetail),isExp=t.type==='expense';
+      return`${i>0?'<div class="divider"></div>':''}
+      <div class="tx-row">
+        <div class="tx-icon" style="background:${c.color}20">${c.icon}</div>
+        <div class="tx-info">
+          <div class="tx-name">${esc(c.name)}${t.note?' · '+esc(t.note):''}</div>
+          <div class="tx-meta">
+            <span>${pl.icon}</span>
+            <span style="color:${pl.color||'#94A3B8'};font-weight:${pl.color?700:400}">${esc(pl.name)}</span>
+            <span style="color:#94A3B8">· ${t.ts.slice(11,16)}</span>
+            ${!isExp?'<span style="color:#34C77C;font-weight:600">· 收入</span>':''}
+          </div>
+        </div>
+        <div class="tx-amt">
+          <div style="font-size:15px;font-weight:800;color:${isExp?'#FF6B6B':'#34C77C'}">${isExp?'-':'+'}$${fmt(t.twd)}</div>
+          ${t.currency==='JPY'?`<div style="font-size:10px;color:#94A3B8">¥${fmt(t.amount)}</div>`:''}
+        </div>
+        <button class="tx-del-btn" data-delid="${t.id}">×</button>
+      </div>
+      ${S.delId===t.id?`<div class="del-confirm">
+        <button style="font-size:12px;padding:5px 12px;border:1px solid #E8ECF2;border-radius:7px;background:#fff;color:#555" id="cancelDel">取消</button>
+        <button style="font-size:12px;padding:5px 12px;border:none;border-radius:7px;background:#FF6B6B;color:#fff;font-weight:700" data-confirmdel="${t.id}">確認刪除</button>
+      </div>`:''}`;
+    }).join('')}</div>`;
+  }).join('')}</div>`;
+}
+
+// ── Main Render ────────────────────────────────────────────
+function render(){
+  const app=document.getElementById('expense-tracker-app');
+  app.innerHTML=buildHeader()+buildTabs()+(S.tab==='add'?buildAdd():S.tab==='chart'?buildChart():buildList());
+  bindEvents();
+  bindChipDrag();
+  if(S.tab==='chart') setTimeout(()=>drawPie(pieData()),0);
+  // Restore amount input value (important: set after render, don't trigger re-render)
+  const ai=document.getElementById('amtInput');
+  if(ai){ai.value=S.amount;}
+  const ni=document.getElementById('noteInput');
+  if(ni){ni.value=S.note;}
+}
+
+// ── Targeted Preview Update (no re-render) ────────────────
+function updatePreview(){
+  const toTWD=S.currency==='JPY'&&S.amount?Math.round(parseFloat(S.amount||0)*S.rate):null;
+  const prev=document.getElementById('jpyPreview');
+  const pval=document.getElementById('previewVal');
+  if(!prev)return;
+  if(toTWD&&toTWD>0){
+    prev.style.display='flex';
+    if(pval)pval.textContent='TWD $'+fmt(toTWD);
+  }else{
+    prev.style.display='none';
+  }
+}
+
+// ── Event Binding ──────────────────────────────────────────
+function bindEvents(){
+  on('monthPicker','change',e=>{S.month=e.target.value;render();});
+  on('rateToggle','click',()=>{S.rateOpen=true;render();setTimeout(()=>{const ri=document.getElementById('rateInput');if(ri){ri.focus();ri.select();}},50);});
+  on('rateSave','click',saveRate);
+  on('rateCancel','click',()=>{S.rateOpen=false;render();});
+  const ri=document.getElementById('rateInput');
+  if(ri){
+    ri.addEventListener('input',e=>S.rateInput=e.target.value);
+    ri.addEventListener('keydown',e=>{if(e.key==='Enter')saveRate();if(e.key==='Escape'){S.rateOpen=false;render();}});
+  }
+  on('exportBtn','click',exportExcel);
+  qsa('[data-tab]',b=>b.addEventListener('click',e=>{S.tab=e.currentTarget.dataset.tab;render();}));
+  qsa('[data-cur]',b=>b.addEventListener('click',e=>{syncForm();S.currency=e.currentTarget.dataset.cur;render();}));
+  qsa('[data-type]',b=>b.addEventListener('click',e=>{syncForm();S.type=e.currentTarget.dataset.type;render();}));
+
+  // ── Amount input: NO re-render, only update preview ──────
+  const ai=document.getElementById('amtInput');
+  if(ai){
+    ai.addEventListener('input',e=>{S.amount=e.target.value;updatePreview();});
+    ai.addEventListener('keydown',e=>{if(e.key==='Enter')addTx();});
+    // Focus without re-rendering (on first load only)
+    if(!S.amount) setTimeout(()=>ai.focus(),50);
+  }
+
+  qsa('[data-cat]',b=>b.addEventListener('click',e=>{syncForm();S.cat=e.currentTarget.dataset.cat;render();}));
+  qsa('[data-pay]',b=>b.addEventListener('click',e=>{syncForm();S.pay=e.currentTarget.dataset.pay;render();}));
+  qsa('[data-selcard]',b=>b.addEventListener('click',e=>{syncForm();S.selCard=e.currentTarget.dataset.selcard;render();}));
+  qsa('[data-delcard]',b=>b.addEventListener('click',e=>{
+    const id=e.currentTarget.dataset.delcard;
+    S.cards=S.cards.filter(c=>c.id!==id);
+    if(S.selCard===id)S.selCard=S.cards[0]?.id||'';
+    saveData();syncForm();render();
+  }));
+  on('toggleAddCard','click',()=>{S.addingCard=!S.addingCard;render();});
+  const nci=document.getElementById('newCardInput');
+  if(nci){nci.addEventListener('input',e=>S.newCard=e.target.value);nci.addEventListener('keydown',e=>{if(e.key==='Enter')doAddCard();});setTimeout(()=>nci.focus(),50);}
+  on('doAddCard','click',doAddCard);
+  on('cancelAddCard','click',()=>{S.addingCard=false;S.newCard='';render();});
+
+  qsa('[data-selapp]',b=>b.addEventListener('click',e=>{syncForm();S.selApp=e.currentTarget.dataset.selapp;render();}));
+  qsa('[data-delapp]',b=>b.addEventListener('click',e=>{
+    const id=e.currentTarget.dataset.delapp;
+    S.apps=S.apps.filter(a=>a.id!==id);
+    if(S.selApp===id)S.selApp=S.apps[0]?.id||'';
+    saveData();syncForm();render();
+  }));
+  on('toggleAddApp','click',()=>{S.addingApp=!S.addingApp;render();});
+  const nai=document.getElementById('newAppInput');
+  if(nai){nai.addEventListener('input',e=>S.newApp=e.target.value);nai.addEventListener('keydown',e=>{if(e.key==='Enter')doAddApp();});setTimeout(()=>nai.focus(),50);}
+  on('doAddApp','click',doAddApp);
+  on('cancelAddApp','click',()=>{S.addingApp=false;S.newApp='';render();});
+
+  // ── Note: NO re-render ────────────────────────────────────
+  const ni=document.getElementById('noteInput');
+  if(ni){
+    ni.addEventListener('input',e=>S.note=e.target.value);
+    ni.addEventListener('keydown',e=>{if(e.key==='Enter')addTx();});
+  }
+  on('addBtn','click',addTx);
+  on('cancelDel','click',()=>{S.delId=null;render();});
+  qsa('[data-delid]',b=>b.addEventListener('click',e=>{const id=parseInt(e.currentTarget.dataset.delid);S.delId=S.delId===id?null:id;render();}));
+  qsa('[data-confirmdel]',b=>b.addEventListener('click',e=>{const id=parseInt(e.currentTarget.dataset.confirmdel);S.txns=S.txns.filter(t=>t.id!==id);S.delId=null;saveData();render();}));
+}
+
+function on(id,ev,fn){const el=document.getElementById(id);if(el)el.addEventListener(ev,fn);}
+function qsa(sel,fn){document.querySelectorAll(sel).forEach(fn);}
+function syncForm(){
+  const ai=document.getElementById('amtInput'); if(ai)S.amount=ai.value;
+  const ni=document.getElementById('noteInput');if(ni)S.note=ni.value;
+}
+
+// ── Actions ────────────────────────────────────────────────
+function addTx(){
+  syncForm();
+  const n=parseFloat(S.amount);
+  if(!n||isNaN(n)||n<=0){
+    // 防呆：紅框 + 按鈕晃動
+    const ac=document.getElementById('amtCard');
+    const ab=document.getElementById('addBtn');
+    if(ac){ac.style.border='2px solid #FF6B6B';setTimeout(()=>ac.style.border='',1500);}
+    if(ab){ab.classList.add('shake');setTimeout(()=>ab.classList.remove('shake'),400);}
+    return;
+  }
+  const toTWD=a=>S.currency==='JPY'?a*S.rate:a;
+  const pd=S.pay==='card'?S.selCard:S.pay==='app'?S.selApp:null;
+  const tx={id:Date.now(),ts:localTS(),type:S.type,currency:S.currency,amount:n,twd:toTWD(n),cat:S.cat,pay:S.pay,payDetail:pd,note:S.note.trim()};
+  S.txns=[tx,...S.txns];
+  S.amount='';S.note='';S.flash=true;
+  saveData();render();
+  setTimeout(()=>{
+    S.flash=false;
+    const ab=document.getElementById('addBtn');
+    if(ab){ab.textContent='＋  新增記錄';ab.style.background='linear-gradient(135deg,#1E3F6F,#4A90D9)';}
+  },1200);
+}
+
+function saveRate(){
+  const r=parseFloat(S.rateInput);if(!r||isNaN(r)||r<=0)return;
+  S.rate=r;S.rateSrc='manual';S.rateOpen=false;saveData();render();
+}
+function doAddCard(){
+  if(!S.newCard.trim())return;
+  const c={id:'c'+Date.now(),name:S.newCard.trim(),color:CARD_COLORS[S.cards.length%CARD_COLORS.length]};
+  S.cards=[...S.cards,c];S.selCard=c.id;S.newCard='';S.addingCard=false;saveData();render();
+}
+function doAddApp(){
+  if(!S.newApp.trim())return;
+  const a={id:'a'+Date.now(),name:S.newApp.trim()};
+  S.apps=[...S.apps,a];S.selApp=a.id;S.newApp='';S.addingApp=false;saveData();render();
+}
+
+// ── Drag-Scroll for desktop chip containers ──────────────────
+function initDragScroll(el){
+  if(!el)return;
+  let down=false,sx=0,sl=0;
+  el.style.userSelect='none';
+  el.addEventListener('mousedown',e=>{
+    // Only drag-scroll if not clicking a button
+    if(e.target.closest('button'))return;
+    down=true;sx=e.pageX;sl=el.scrollLeft;el.style.cursor='grabbing';e.preventDefault();
+  });
+  window.addEventListener('mouseup',()=>{if(down){down=false;el.style.cursor='default';}});
+  el.addEventListener('mousemove',e=>{if(!down)return;el.scrollLeft=sl-(e.pageX-sx)*1.3;});
+}
+
+// ── Drag-Reorder for chips ───────────────────────────────────
+function bindChipDrag(){
+  // Cards
+  document.querySelectorAll('[data-dragcard]').forEach(btn=>{
+    btn.addEventListener('dragstart',e=>{S.dragCard=btn.dataset.dragcard;e.dataTransfer.effectAllowed='move';btn.style.opacity='.5';});
+    btn.addEventListener('dragend',()=>{btn.style.opacity='1';S.dragCard=null;});
+    btn.addEventListener('dragover',e=>{e.preventDefault();e.dataTransfer.dropEffect='move';btn.style.outline='2px solid #4A90D9';});
+    btn.addEventListener('dragleave',()=>{btn.style.outline='';});
+    btn.addEventListener('drop',e=>{
+      e.preventDefault();btn.style.outline='';
+      const from=S.dragCard,to=btn.dataset.dragcard;
+      if(from&&from!==to){
+        const fi=S.cards.findIndex(c=>c.id===from),ti=S.cards.findIndex(c=>c.id===to);
+        if(fi>=0&&ti>=0){const arr=[...S.cards];[arr[fi],arr[ti]]=[arr[ti],arr[fi]];S.cards=arr;saveData();syncForm();render();}
+      }
+    });
+  });
+  // Apps
+  document.querySelectorAll('[data-dragapp]').forEach(btn=>{
+    btn.addEventListener('dragstart',e=>{S.dragApp=btn.dataset.dragapp;e.dataTransfer.effectAllowed='move';btn.style.opacity='.5';});
+    btn.addEventListener('dragend',()=>{btn.style.opacity='1';S.dragApp=null;});
+    btn.addEventListener('dragover',e=>{e.preventDefault();e.dataTransfer.dropEffect='move';btn.style.outline='2px solid #4A90D9';});
+    btn.addEventListener('dragleave',()=>{btn.style.outline='';});
+    btn.addEventListener('drop',e=>{
+      e.preventDefault();btn.style.outline='';
+      const from=S.dragApp,to=btn.dataset.dragapp;
+      if(from&&from!==to){
+        const fi=S.apps.findIndex(a=>a.id===from),ti=S.apps.findIndex(a=>a.id===to);
+        if(fi>=0&&ti>=0){const arr=[...S.apps];[arr[fi],arr[ti]]=[arr[ti],arr[fi]];S.apps=arr;saveData();syncForm();render();}
+      }
+    });
+  });
+  // Init drag-scroll on chip containers
+  document.querySelectorAll('.chips').forEach(initDragScroll);
+}
+
+// ── Live Rate ──────────────────────────────────────────────
+function fetchRate(){
+  fetch('https://api.frankfurter.app/latest?from=JPY&to=TWD')
+    .then(r=>r.json()).then(d=>{
+      if(d.rates?.TWD){S.rate=parseFloat(d.rates.TWD.toFixed(4));S.rateInput=String(S.rate);S.rateSrc='auto';render();}
+    }).catch(()=>{});
+}
+
+// ── Init ───────────────────────────────────────────────────
+loadData();render();fetchRate();
+})();
+
+
 // ===== 頁籤滾動 =====
 function scrollToSection(id) {
   const el = document.getElementById(id);
