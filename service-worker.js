@@ -8,7 +8,7 @@ const CACHE_NAME = 'kagawa-handbook-v29';
 
 // 安裝時預快取的核心檔案
 const CORE_FILES = [
-  'travel-handbook-v29.html',
+  'index.html',
   'manifest.json',
   'icon-192.png',
   'icon-512.png',
