@@ -2,7 +2,7 @@
   "name": "2026 香川・小豆島 旅遊手冊",
   "short_name": "香川手冊",
   "description": "2026 香川・小豆島 夏季自由行完整手冊，含地圖、記帳、天氣",
-  "start_url": "travel-handbook-v29.html",
+  "start_url": "index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#f0f0f0",
