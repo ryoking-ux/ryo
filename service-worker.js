@@ -4,7 +4,7 @@
  * 離線時從 Cache 回退，確保手冊可完整閱讀
  */
 
-const CACHE_NAME = 'kagawa-handbook-v29';
+const CACHE_NAME = 'index';
 
 // 安裝時預快取的核心檔案
 const CORE_FILES = [
